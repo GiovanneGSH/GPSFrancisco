@@ -68,5 +68,30 @@ namespace GPSFrancisco
             txtUsuario.Focus();
         }
 
+        //criando um método para acesso do usuário
+
+        public bool acessaUsuario(string nome, string senha)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select nome,senha from tbUsuarios where nome=@nome and senha=@senha";
+            comm.CommandType = CommandType.Text;
+
+
+            comm.Parameters.Clear();
+
+            comm.Parameters.Add("@nome",MySqlDbType.VarChar,50).Value = nome;
+            comm.Parameters.Add("@senha",MySqlDbType.VarChar,12).Value = senha;
+
+            comm.Connection = Conexao.obterConexao();
+
+            MySqlDataReader DR;
+            DR = comm.ExecuteReader();
+            bool resp = DR.HasRows;
+
+            Conexao.fecharConexao();
+
+            return resp;
+        }
+
     }
 }

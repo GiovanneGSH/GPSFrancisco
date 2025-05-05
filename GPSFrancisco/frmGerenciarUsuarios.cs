@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace GPSFrancisco
 {
-    public partial class frmMenuPrincipal : Form
+    public partial class frmGerenciarUsuarios : Form
     {
         const int MF_BYCOMMAND = 0X400;
         [DllImport("user32")]
@@ -20,12 +20,12 @@ namespace GPSFrancisco
         static extern IntPtr GetSystemMenu(IntPtr hWnd, bool bRevert);
         [DllImport("user32")]
         static extern int GetMenuItemCount(IntPtr hWnd);
-        public frmMenuPrincipal()
+
+        public frmGerenciarUsuarios()
         {
             InitializeComponent();
         }
-
-        private void frmMenuPrincipal_Load(object sender, EventArgs e)
+        private void frmGerenciarUsuarios_Load(object sender, EventArgs e)
         {
             IntPtr hMenu = GetSystemMenu(this.Handle, false);
             int MenuCount = GetMenuItemCount(hMenu) - 1;
@@ -35,13 +35,6 @@ namespace GPSFrancisco
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             frmMenuPrincipal abrir = new frmMenuPrincipal();
-            abrir.Show();
-            this.Hide();
-        }
-
-        private void btnUsuarios_Click(object sender, EventArgs e)
-        {
-            frmGerenciarUsuarios abrir = new frmGerenciarUsuarios();
             abrir.Show();
             this.Hide();
         }
