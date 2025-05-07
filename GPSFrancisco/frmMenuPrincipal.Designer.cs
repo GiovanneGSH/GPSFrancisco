@@ -56,7 +56,7 @@
             this.btnVoltar.Location = new System.Drawing.Point(12, 470);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(127, 79);
-            this.btnVoltar.TabIndex = 1;
+            this.btnVoltar.TabIndex = 2;
             this.btnVoltar.Text = "&Voltar";
             this.btnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnVoltar.UseVisualStyleBackColor = true;
@@ -70,7 +70,7 @@
             this.btnUsuarios.Location = new System.Drawing.Point(227, 12);
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Size = new System.Drawing.Size(193, 203);
-            this.btnUsuarios.TabIndex = 2;
+            this.btnUsuarios.TabIndex = 1;
             this.btnUsuarios.Text = "&Usuários";
             this.btnUsuarios.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;

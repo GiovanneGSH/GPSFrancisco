@@ -24,7 +24,52 @@ namespace GPSFrancisco
         public frmGerenciarUsuarios()
         {
             InitializeComponent();
+            desabilitarCampos();
         }
+
+        private void desabilitarCampos() 
+        { 
+            txtUsuario.Enabled = false;
+            txtSenha.Enabled = false;
+            txtValidaSenha.Enabled = false;
+            btnCadastrar.Enabled = false;
+            btnExcluir.Enabled = false;
+            btnLimpar.Enabled = false;
+            btnAlterar.Enabled = false;
+            
+        }
+
+        private void habilitarCampos()
+        {
+            txtUsuario.Enabled = true;
+            txtSenha.Enabled = true;
+            txtValidaSenha.Enabled = true;
+            btnCadastrar.Enabled = true;
+            btnExcluir.Enabled = false;
+            btnLimpar.Enabled = true;
+            btnAlterar.Enabled = false;
+            btnNovo.Enabled = false;
+            txtUsuario.Focus();
+
+        }
+
+        private void habilitarCamposCadastrar()
+        {
+            txtUsuario.Enabled = false;
+            txtSenha.Enabled = false;
+            txtValidaSenha.Enabled = false;
+            btnCadastrar.Enabled = false;
+            btnExcluir.Enabled = false;
+            btnLimpar.Enabled = true;
+            btnAlterar.Enabled = false;
+            btnNovo.Enabled = true;  
+            txtUsuario.Clear();
+            txtSenha.Clear();
+            txtValidaSenha.Clear();           
+        }
+
+
+
         private void frmGerenciarUsuarios_Load(object sender, EventArgs e)
         {
             IntPtr hMenu = GetSystemMenu(this.Handle, false);
@@ -37,6 +82,59 @@ namespace GPSFrancisco
             frmMenuPrincipal abrir = new frmMenuPrincipal();
             abrir.Show();
             this.Hide();
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            limparCampos();
+        }
+        //Método para limpar campos
+        private void limparCampos()
+        {
+            txtCodigo.Clear();
+            txtUsuario.Clear();
+            txtSenha.Clear();
+            txtValidaSenha.Clear();
+            txtUsuario.Focus();
+        }
+        
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            habilitarCampos();           
+        }
+              
+       
+
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            if (txtUsuario.Text.Equals("") || txtSenha.Text.Equals("") || txtValidaSenha.Text.Equals(""))
+            {
+                MessageBox.Show("Por favor inserir valores!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+               habilitarCamposCadastrar();
+            }
+            else
+            {                               
+
+               if (txtSenha.Text.Length < 12 || txtValidaSenha.Text.Length < 12)
+                    {
+                        MessageBox.Show("Sua senha tem que ter 12 caracteres", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    }
+                    
+                else
+                       
+                if (txtSenha.Text.Equals(txtValidaSenha.Text))
+                {
+                    MessageBox.Show("Cadastrado com sucesso!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+
+                    habilitarCamposCadastrar();
+                }
+                else
+                    MessageBox.Show("A senha não é igual!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    txtSenha.Clear() ;
+                    txtValidaSenha.Clear();
+                    txtSenha.Focus();                
+            }
         }
     }
 }

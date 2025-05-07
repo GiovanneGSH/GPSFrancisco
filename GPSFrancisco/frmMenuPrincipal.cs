@@ -34,7 +34,7 @@ namespace GPSFrancisco
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            frmMenuPrincipal abrir = new frmMenuPrincipal();
+            frmLogin abrir = new frmLogin();
             abrir.Show();
             this.Hide();
         }
