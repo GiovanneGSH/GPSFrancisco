@@ -20,7 +20,6 @@ namespace GPSFrancisco
 
             try
             {
-
                 con.Open();
             }
             catch (MySqlException) 

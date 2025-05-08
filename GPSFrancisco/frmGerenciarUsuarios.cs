@@ -24,7 +24,7 @@ namespace GPSFrancisco
         public frmGerenciarUsuarios()
         {
             InitializeComponent();
-            desabilitarCampos();
+            desabilitarCampos();            
         }
 
         private void desabilitarCampos() 
@@ -48,7 +48,7 @@ namespace GPSFrancisco
             btnExcluir.Enabled = false;
             btnLimpar.Enabled = true;
             btnAlterar.Enabled = false;
-            btnNovo.Enabled = false;
+            btnNovo.Enabled = false;            
             txtUsuario.Focus();
 
         }
@@ -67,7 +67,7 @@ namespace GPSFrancisco
             txtSenha.Clear();
             txtValidaSenha.Clear();           
         }
-
+               
 
 
         private void frmGerenciarUsuarios_Load(object sender, EventArgs e)
@@ -75,6 +75,7 @@ namespace GPSFrancisco
             IntPtr hMenu = GetSystemMenu(this.Handle, false);
             int MenuCount = GetMenuItemCount(hMenu) - 1;
             RemoveMenu(hMenu, MenuCount, MF_BYCOMMAND);
+            
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -96,16 +97,15 @@ namespace GPSFrancisco
             txtSenha.Clear();
             txtValidaSenha.Clear();
             txtUsuario.Focus();
-        }
-        
+            btnCheck.Visible = false;
+            btnErro.Visible = false;
+        }        
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            habilitarCampos();           
-        }
-              
+            habilitarCampos();            
+        }           
        
-
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             if (txtUsuario.Text.Equals("") || txtSenha.Text.Equals("") || txtValidaSenha.Text.Equals(""))
@@ -135,6 +135,32 @@ namespace GPSFrancisco
                     txtValidaSenha.Clear();
                     txtSenha.Focus();                
             }
+        }
+
+        private void txtValidaSenha_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSenha.Text.Equals(txtValidaSenha.Text) && txtValidaSenha.Text.Length.Equals(12))
+            {
+                btnCheck.Visible = true;
+            }
+            else
+            {
+                btnCheck.Visible = false;
+            }
+
+            if (txtSenha.Text != txtValidaSenha.Text)
+            {
+                if (txtValidaSenha.Text.Length.Equals(12))
+                {
+                    btnErro.Visible = true;                                       
+                }            
+                else
+                {
+                    btnErro.Visible = false;
+                }
+
+            }
+
         }
     }
 }

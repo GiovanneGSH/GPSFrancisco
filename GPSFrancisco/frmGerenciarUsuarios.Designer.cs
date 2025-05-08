@@ -46,12 +46,16 @@
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
+            this.btnCheck = new System.Windows.Forms.Button();
+            this.btnErro = new System.Windows.Forms.Button();
             this.gpbInformacoesUsuarios.SuspendLayout();
             this.pnlCrud.SuspendLayout();
             this.SuspendLayout();
             // 
             // gpbInformacoesUsuarios
             // 
+            this.gpbInformacoesUsuarios.Controls.Add(this.btnErro);
+            this.gpbInformacoesUsuarios.Controls.Add(this.btnCheck);
             this.gpbInformacoesUsuarios.Controls.Add(this.txtValidaSenha);
             this.gpbInformacoesUsuarios.Controls.Add(this.lblValidaSenha);
             this.gpbInformacoesUsuarios.Controls.Add(this.txtSenha);
@@ -77,6 +81,7 @@
             this.txtValidaSenha.PasswordChar = 'l';
             this.txtValidaSenha.Size = new System.Drawing.Size(200, 25);
             this.txtValidaSenha.TabIndex = 3;
+            this.txtValidaSenha.TextChanged += new System.EventHandler(this.txtValidaSenha_TextChanged);
             // 
             // lblValidaSenha
             // 
@@ -243,6 +248,30 @@
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
+            // btnCheck
+            // 
+            this.btnCheck.FlatAppearance.BorderSize = 0;
+            this.btnCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheck.Image = ((System.Drawing.Image)(resources.GetObject("btnCheck.Image")));
+            this.btnCheck.Location = new System.Drawing.Point(534, 191);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(39, 34);
+            this.btnCheck.TabIndex = 7;
+            this.btnCheck.UseVisualStyleBackColor = true;
+            this.btnCheck.Visible = false;
+            // 
+            // btnErro
+            // 
+            this.btnErro.FlatAppearance.BorderSize = 0;
+            this.btnErro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnErro.Image = ((System.Drawing.Image)(resources.GetObject("btnErro.Image")));
+            this.btnErro.Location = new System.Drawing.Point(534, 193);
+            this.btnErro.Name = "btnErro";
+            this.btnErro.Size = new System.Drawing.Size(39, 37);
+            this.btnErro.TabIndex = 8;
+            this.btnErro.UseVisualStyleBackColor = true;
+            this.btnErro.Visible = false;
+            // 
             // frmGerenciarUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -283,5 +312,7 @@
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnPesquisar;
+        private System.Windows.Forms.Button btnCheck;
+        private System.Windows.Forms.Button btnErro;
     }
 }

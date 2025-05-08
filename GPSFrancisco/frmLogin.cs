@@ -45,7 +45,7 @@ namespace GPSFrancisco
             usuario = txtUsuario.Text;
             senha = txtSenha.Text;
 
-            if (usuario.Equals("senac") && senha.Equals("senac"))
+            if (acessaUsuario(usuario,senha))
             {
                 frmMenuPrincipal abrir = new frmMenuPrincipal();
                 abrir.Show();
@@ -68,6 +68,8 @@ namespace GPSFrancisco
             txtUsuario.Focus();
         }
 
+        bool resp = false;
+
         //criando um método para acesso do usuário
 
         public bool acessaUsuario(string nome, string senha)
@@ -84,13 +86,28 @@ namespace GPSFrancisco
 
             comm.Connection = Conexao.obterConexao();
 
-            MySqlDataReader DR;
-            DR = comm.ExecuteReader();
-            bool resp = DR.HasRows;
+            MySqlDataReader DR;                    
+            
+            try
+            {
 
-            Conexao.fecharConexao();
+                DR = comm.ExecuteReader();
+                bool resp = DR.HasRows;
 
+                Conexao.fecharConexao();
+                
+            }
+
+            catch (Exception) 
+            {
+                MessageBox.Show("Banco de dados não conectado", "Mensagem do sistema",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1);
+            }
             return resp;
+
+
         }
 
     }
