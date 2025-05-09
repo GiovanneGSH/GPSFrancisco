@@ -99,6 +99,7 @@ namespace GPSFrancisco
             txtUsuario.Focus();
             btnCheck.Visible = false;
             btnErro.Visible = false;
+            txtSenha.Enabled = true;
         }        
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -137,29 +138,32 @@ namespace GPSFrancisco
             }
         }
 
+        int contador = 0;
+
         private void txtValidaSenha_TextChanged(object sender, EventArgs e)
         {
             if (txtSenha.Text.Equals(txtValidaSenha.Text) && txtValidaSenha.Text.Length.Equals(12))
             {
                 btnCheck.Visible = true;
+                btnErro.Visible = false;
             }
             else
             {
                 btnCheck.Visible = false;
             }
-
-            if (txtSenha.Text != txtValidaSenha.Text)
+            if (!txtValidaSenha.Text.Equals(txtSenha.Text) && txtValidaSenha.Text.Length.Equals(12))
             {
-                if (txtValidaSenha.Text.Length.Equals(12))
-                {
-                    btnErro.Visible = true;                                       
-                }            
-                else
-                {
-                    btnErro.Visible = false;
-                }
-
+                btnErro.Visible = true;
+                contador++;
             }
+            if (contador > 0)
+            {
+                btnErro.Visible = true;
+                txtValidaSenha.Clear();
+                txtValidaSenha.Focus();
+                txtSenha.Enabled = false;
+                contador = 0;
+            }           
 
         }
     }

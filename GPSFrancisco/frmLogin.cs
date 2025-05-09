@@ -75,7 +75,7 @@ namespace GPSFrancisco
         public bool acessaUsuario(string nome, string senha)
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "select nome,senha from tbUsuarios where nome=@nome and senha=@senha";
+            comm.CommandText = "select nome,senha from tbUsuarios where nome=@nome and senha=@senha;";
             comm.CommandType = CommandType.Text;
 
 
@@ -92,7 +92,7 @@ namespace GPSFrancisco
             {
 
                 DR = comm.ExecuteReader();
-                bool resp = DR.HasRows;
+                resp = DR.HasRows;
 
                 Conexao.fecharConexao();
                 
