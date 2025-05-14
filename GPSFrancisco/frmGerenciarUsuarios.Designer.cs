@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGerenciarUsuarios));
             this.gpbInformacoesUsuarios = new System.Windows.Forms.GroupBox();
+            this.btnErro = new System.Windows.Forms.Button();
+            this.btnCheck = new System.Windows.Forms.Button();
             this.txtValidaSenha = new System.Windows.Forms.TextBox();
             this.lblValidaSenha = new System.Windows.Forms.Label();
             this.txtSenha = new System.Windows.Forms.TextBox();
@@ -46,14 +48,16 @@
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.btnCheck = new System.Windows.Forms.Button();
-            this.btnErro = new System.Windows.Forms.Button();
+            this.cbbUsuariosCadastrados = new System.Windows.Forms.ComboBox();
+            this.lblUsuariosCadastrados = new System.Windows.Forms.Label();
             this.gpbInformacoesUsuarios.SuspendLayout();
             this.pnlCrud.SuspendLayout();
             this.SuspendLayout();
             // 
             // gpbInformacoesUsuarios
             // 
+            this.gpbInformacoesUsuarios.Controls.Add(this.lblUsuariosCadastrados);
+            this.gpbInformacoesUsuarios.Controls.Add(this.cbbUsuariosCadastrados);
             this.gpbInformacoesUsuarios.Controls.Add(this.btnErro);
             this.gpbInformacoesUsuarios.Controls.Add(this.btnCheck);
             this.gpbInformacoesUsuarios.Controls.Add(this.txtValidaSenha);
@@ -71,6 +75,30 @@
             this.gpbInformacoesUsuarios.TabIndex = 4;
             this.gpbInformacoesUsuarios.TabStop = false;
             this.gpbInformacoesUsuarios.Text = "Informações do usuário";
+            // 
+            // btnErro
+            // 
+            this.btnErro.FlatAppearance.BorderSize = 0;
+            this.btnErro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnErro.Image = ((System.Drawing.Image)(resources.GetObject("btnErro.Image")));
+            this.btnErro.Location = new System.Drawing.Point(534, 193);
+            this.btnErro.Name = "btnErro";
+            this.btnErro.Size = new System.Drawing.Size(39, 37);
+            this.btnErro.TabIndex = 8;
+            this.btnErro.UseVisualStyleBackColor = true;
+            this.btnErro.Visible = false;
+            // 
+            // btnCheck
+            // 
+            this.btnCheck.FlatAppearance.BorderSize = 0;
+            this.btnCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheck.Image = ((System.Drawing.Image)(resources.GetObject("btnCheck.Image")));
+            this.btnCheck.Location = new System.Drawing.Point(534, 191);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(39, 34);
+            this.btnCheck.TabIndex = 7;
+            this.btnCheck.UseVisualStyleBackColor = true;
+            this.btnCheck.Visible = false;
             // 
             // txtValidaSenha
             // 
@@ -248,29 +276,23 @@
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
-            // btnCheck
+            // cbbUsuariosCadastrados
             // 
-            this.btnCheck.FlatAppearance.BorderSize = 0;
-            this.btnCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheck.Image = ((System.Drawing.Image)(resources.GetObject("btnCheck.Image")));
-            this.btnCheck.Location = new System.Drawing.Point(534, 191);
-            this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(39, 34);
-            this.btnCheck.TabIndex = 7;
-            this.btnCheck.UseVisualStyleBackColor = true;
-            this.btnCheck.Visible = false;
+            this.cbbUsuariosCadastrados.FormattingEnabled = true;
+            this.cbbUsuariosCadastrados.Location = new System.Drawing.Point(541, 54);
+            this.cbbUsuariosCadastrados.Name = "cbbUsuariosCadastrados";
+            this.cbbUsuariosCadastrados.Size = new System.Drawing.Size(163, 28);
+            this.cbbUsuariosCadastrados.TabIndex = 9;
+            this.cbbUsuariosCadastrados.Click += new System.EventHandler(this.cbbUsuariosCadastrados_Click);
             // 
-            // btnErro
+            // lblUsuariosCadastrados
             // 
-            this.btnErro.FlatAppearance.BorderSize = 0;
-            this.btnErro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnErro.Image = ((System.Drawing.Image)(resources.GetObject("btnErro.Image")));
-            this.btnErro.Location = new System.Drawing.Point(534, 193);
-            this.btnErro.Name = "btnErro";
-            this.btnErro.Size = new System.Drawing.Size(39, 37);
-            this.btnErro.TabIndex = 8;
-            this.btnErro.UseVisualStyleBackColor = true;
-            this.btnErro.Visible = false;
+            this.lblUsuariosCadastrados.AutoSize = true;
+            this.lblUsuariosCadastrados.Location = new System.Drawing.Point(537, 31);
+            this.lblUsuariosCadastrados.Name = "lblUsuariosCadastrados";
+            this.lblUsuariosCadastrados.Size = new System.Drawing.Size(167, 20);
+            this.lblUsuariosCadastrados.TabIndex = 10;
+            this.lblUsuariosCadastrados.Text = "Usuários Cadastrados";
             // 
             // frmGerenciarUsuarios
             // 
@@ -314,5 +336,7 @@
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.Button btnErro;
+        private System.Windows.Forms.Label lblUsuariosCadastrados;
+        private System.Windows.Forms.ComboBox cbbUsuariosCadastrados;
     }
 }
