@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGerenciarUsuarios));
             this.gpbInformacoesUsuarios = new System.Windows.Forms.GroupBox();
+            this.lblUsuariosCadastrados = new System.Windows.Forms.Label();
+            this.cbbUsuariosCadastrados = new System.Windows.Forms.ComboBox();
             this.btnErro = new System.Windows.Forms.Button();
             this.btnCheck = new System.Windows.Forms.Button();
             this.txtValidaSenha = new System.Windows.Forms.TextBox();
@@ -48,8 +50,6 @@
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.cbbUsuariosCadastrados = new System.Windows.Forms.ComboBox();
-            this.lblUsuariosCadastrados = new System.Windows.Forms.Label();
             this.gpbInformacoesUsuarios.SuspendLayout();
             this.pnlCrud.SuspendLayout();
             this.SuspendLayout();
@@ -75,6 +75,24 @@
             this.gpbInformacoesUsuarios.TabIndex = 4;
             this.gpbInformacoesUsuarios.TabStop = false;
             this.gpbInformacoesUsuarios.Text = "Informações do usuário";
+            // 
+            // lblUsuariosCadastrados
+            // 
+            this.lblUsuariosCadastrados.AutoSize = true;
+            this.lblUsuariosCadastrados.Location = new System.Drawing.Point(537, 31);
+            this.lblUsuariosCadastrados.Name = "lblUsuariosCadastrados";
+            this.lblUsuariosCadastrados.Size = new System.Drawing.Size(167, 20);
+            this.lblUsuariosCadastrados.TabIndex = 10;
+            this.lblUsuariosCadastrados.Text = "Usuários Cadastrados";
+            // 
+            // cbbUsuariosCadastrados
+            // 
+            this.cbbUsuariosCadastrados.FormattingEnabled = true;
+            this.cbbUsuariosCadastrados.Location = new System.Drawing.Point(541, 54);
+            this.cbbUsuariosCadastrados.Name = "cbbUsuariosCadastrados";
+            this.cbbUsuariosCadastrados.Size = new System.Drawing.Size(163, 28);
+            this.cbbUsuariosCadastrados.TabIndex = 9;
+            this.cbbUsuariosCadastrados.Click += new System.EventHandler(this.cbbUsuariosCadastrados_Click);
             // 
             // btnErro
             // 
@@ -262,6 +280,7 @@
             this.btnPesquisar.Text = "&Pesquisar";
             this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // btnNovo
             // 
@@ -275,24 +294,6 @@
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
-            // 
-            // cbbUsuariosCadastrados
-            // 
-            this.cbbUsuariosCadastrados.FormattingEnabled = true;
-            this.cbbUsuariosCadastrados.Location = new System.Drawing.Point(541, 54);
-            this.cbbUsuariosCadastrados.Name = "cbbUsuariosCadastrados";
-            this.cbbUsuariosCadastrados.Size = new System.Drawing.Size(163, 28);
-            this.cbbUsuariosCadastrados.TabIndex = 9;
-            this.cbbUsuariosCadastrados.Click += new System.EventHandler(this.cbbUsuariosCadastrados_Click);
-            // 
-            // lblUsuariosCadastrados
-            // 
-            this.lblUsuariosCadastrados.AutoSize = true;
-            this.lblUsuariosCadastrados.Location = new System.Drawing.Point(537, 31);
-            this.lblUsuariosCadastrados.Name = "lblUsuariosCadastrados";
-            this.lblUsuariosCadastrados.Size = new System.Drawing.Size(167, 20);
-            this.lblUsuariosCadastrados.TabIndex = 10;
-            this.lblUsuariosCadastrados.Text = "Usuários Cadastrados";
             // 
             // frmGerenciarUsuarios
             // 
