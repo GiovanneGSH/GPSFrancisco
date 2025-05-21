@@ -25,7 +25,7 @@ namespace GPSFrancisco
         public frmGerenciarUsuarios()
         {
             InitializeComponent();
-            desabilitarCampos();            
+            desabilitarCampos();
         }
 
         public frmGerenciarUsuarios(string nome)
@@ -35,10 +35,14 @@ namespace GPSFrancisco
 
             txtUsuario.Text = nome;
 
+            buscaUsuarioExistente(nome);
+
+            habilitarCamposUsuarioExistente();
+
         }
 
-        private void desabilitarCampos() 
-        { 
+        private void desabilitarCampos()
+        {
             txtUsuario.Enabled = false;
             txtSenha.Enabled = false;
             txtValidaSenha.Enabled = false;
@@ -46,7 +50,7 @@ namespace GPSFrancisco
             btnExcluir.Enabled = false;
             btnLimpar.Enabled = false;
             btnAlterar.Enabled = false;
-            
+
         }
 
         private void habilitarCampos()
@@ -58,9 +62,22 @@ namespace GPSFrancisco
             btnExcluir.Enabled = false;
             btnLimpar.Enabled = true;
             btnAlterar.Enabled = false;
-            btnNovo.Enabled = false;            
+            btnNovo.Enabled = false;
             txtUsuario.Focus();
 
+        }
+
+        private void habilitarCamposUsuarioExistente()
+        {
+            txtUsuario.Enabled = true;
+            txtSenha.Enabled = true;
+            txtValidaSenha.Enabled = true;
+            btnCadastrar.Enabled = false;
+            btnExcluir.Enabled = true;
+            btnLimpar.Enabled = true;
+            btnAlterar.Enabled = true;
+            btnNovo.Enabled = false;
+            txtUsuario.Focus();
         }
 
         private void desabilitarCamposCadastrar()
@@ -235,6 +252,31 @@ namespace GPSFrancisco
 
         }
 
+        //metódo busca usuário existente
+
+        public void buscaUsuarioExistente(string usuario)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select * from tbUsuarios where nome = @nome;";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@nome", MySqlDbType.VarChar, 50).Value = usuario;
+
+            comm.Connection = Conexao.obterConexao();
+            MySqlDataReader DR;
+            DR = comm.ExecuteReader();
+            DR.Read();
+
+            txtCodigo.Text = Convert.ToString(DR.GetInt32(0));
+            txtUsuario.Text = DR.GetString(1);
+            txtSenha.Text = DR.GetString(2);
+
+            Conexao.fecharConexao();
+
+        }
+
+
         private void cbbUsuariosCadastrados_Click(object sender, EventArgs e)
         {
             cbbUsuariosCadastrados.Items.Clear();
@@ -243,10 +285,10 @@ namespace GPSFrancisco
 
         //metódo alterar usuário
 
-        private void alterarUsuario(string usuario, string senha)
+        private int alterarUsuario(string usuario, string senha, int codUsu)
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "update tbUsuarios set nome='@nome',senha='@senha' where codUsu = @codUsu;";
+            comm.CommandText = "update tbUsuarios set nome = @nome, senha = @senha where codUsu = " + codUsu;
             comm.CommandType = CommandType.Text;
 
             comm.Parameters.Clear();
@@ -256,7 +298,11 @@ namespace GPSFrancisco
 
             comm.Connection = Conexao.obterConexao();
 
+            int resp = comm.ExecuteNonQuery();
+
             Conexao.fecharConexao();
+
+            return resp;
 
         }
 
@@ -279,11 +325,86 @@ namespace GPSFrancisco
             Conexao.fecharConexao();
         }
 
+        public int excluirUsuario(int codUsu)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "delete from tbUsuarios where codUsu = @codUsu;";
+            comm.CommandType = CommandType.Text;            
+
+            comm.Parameters.Clear();
+
+            comm.Parameters.Add("@codUsu", MySqlDbType.Int32).Value = codUsu;
+
+            comm.Connection = Conexao.obterConexao();
+
+            int resp = comm.ExecuteNonQuery();
+
+            Conexao.fecharConexao();
+
+            desabilitarCampos();
+            limparCampos();
+
+            return resp;
+            
+        }
+
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             frmPesquisarUsuarios abrir = new frmPesquisarUsuarios();
             abrir.Show();
             this.Hide();
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+           if(alterarUsuario(txtUsuario.Text, txtSenha.Text, Convert.ToInt32(txtCodigo.Text)).Equals(1)){
+
+                MessageBox.Show("Usuário alterado com sucesso.", "Mensagem do sistema",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information,
+                MessageBoxDefaultButton.Button1);
+                desabilitarCampos();
+                limparCampos();
+            }
+            else
+            {
+                MessageBox.Show("Erro ao alterar", "Mensagem do sistema",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error,
+                MessageBoxDefaultButton.Button1);
+            }
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            DialogResult resp = MessageBox.Show("Deseja excluir?", "Mensagem do sistema",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2
+                );
+
+            if (resp == DialogResult.Yes)
+            {
+
+                if (excluirUsuario(Convert.ToInt32(txtCodigo.Text)).Equals(1))
+                {
+                    MessageBox.Show("Usuário excluído com sucesso.", "Mensagem do sistema",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1);                    
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao excluir.", "Mensagem do sistema",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1);
+                }
+            }
+            else
+            {
+                //se o botão for NO.
+            }
         }
     }
 }

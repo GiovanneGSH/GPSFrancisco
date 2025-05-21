@@ -99,6 +99,7 @@ namespace GPSFrancisco
             Conexao.fecharConexao();                       
 
         }
+        
 
         public void pesquisarPorNome(string usuarios)
         {
