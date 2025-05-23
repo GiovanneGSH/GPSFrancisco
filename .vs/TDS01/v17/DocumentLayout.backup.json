@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\gpsfrancisco\\frmgerenciarusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\frmgerenciarusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A86D3A8C-F034-48DC-97A5-A5093775602A}|Dashboard\\Dashboard.csproj|c:\\users\\giovanne.shenrique\\documents\\visual studio 2022\\tds01\\dashboard\\frminventstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A86D3A8C-F034-48DC-97A5-A5093775602A}|Dashboard\\Dashboard.csproj|solutionrelative:dashboard\\frminventstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\gpsfrancisco\\frmpesquisarusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\frmpesquisarusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|c:\\users\\giovanne.shenrique\\documents\\visual studio 2022\\tds01\\gpsfrancisco\\frmpesquisarusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\frmpesquisarusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|c:\\users\\giovanne.shenrique\\documents\\visual studio 2022\\tds01\\gpsfrancisco\\frmgerenciarusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\frmgerenciarusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A86D3A8C-F034-48DC-97A5-A5093775602A}|Dashboard\\Dashboard.csproj|c:\\users\\giovanne.shenrique\\documents\\visual studio 2022\\tds01\\dashboard\\frminventstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A86D3A8C-F034-48DC-97A5-A5093775602A}|Dashboard\\Dashboard.csproj|solutionrelative:dashboard\\frminventstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,57 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "frmGerenciarUsuarios.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmGerenciarUsuarios.cs",
-              "RelativeDocumentMoniker": "GPSFrancisco\\frmGerenciarUsuarios.cs",
-              "ToolTip": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmGerenciarUsuarios.cs [Design]",
-              "RelativeToolTip": "GPSFrancisco\\frmGerenciarUsuarios.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T11:54:48.198Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmPesquisarUsuarios.cs",
-              "DocumentMoniker": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmPesquisarUsuarios.cs",
-              "RelativeDocumentMoniker": "GPSFrancisco\\frmPesquisarUsuarios.cs",
-              "ToolTip": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmPesquisarUsuarios.cs",
-              "RelativeToolTip": "GPSFrancisco\\frmPesquisarUsuarios.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGQAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T11:46:20.973Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "frmPesquisarUsuarios.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmPesquisarUsuarios.cs",
-              "RelativeDocumentMoniker": "GPSFrancisco\\frmPesquisarUsuarios.cs",
-              "ToolTip": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmPesquisarUsuarios.cs [Design]",
-              "RelativeToolTip": "GPSFrancisco\\frmPesquisarUsuarios.cs [Design]",
+              "Title": "frmInventStore.cs",
+              "DocumentMoniker": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\Dashboard\\frmInventStore.cs",
+              "RelativeDocumentMoniker": "Dashboard\\frmInventStore.cs",
+              "ToolTip": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\Dashboard\\frmInventStore.cs*",
+              "RelativeToolTip": "Dashboard\\frmInventStore.cs*",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAEwBUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T11:38:50.546Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-05-23T14:02:42.607Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "frmGerenciarUsuarios.cs",
-              "DocumentMoniker": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmGerenciarUsuarios.cs",
-              "RelativeDocumentMoniker": "GPSFrancisco\\frmGerenciarUsuarios.cs",
-              "ToolTip": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmGerenciarUsuarios.cs",
-              "RelativeToolTip": "GPSFrancisco\\frmGerenciarUsuarios.cs",
-              "ViewState": "AgIAAHgBAAAAAAAAAAAEwJkBAAAJAAAAAAAAAA==",
+              "Title": "frmInventStore.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\Dashboard\\frmInventStore.cs",
+              "RelativeDocumentMoniker": "Dashboard\\frmInventStore.cs",
+              "ToolTip": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\Dashboard\\frmInventStore.cs [Design]*",
+              "RelativeToolTip": "Dashboard\\frmInventStore.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T14:30:24.534Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-23T12:48:03.275Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

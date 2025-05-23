@@ -1,0 +1,11 @@
+C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\Dashboard\bin\Debug\Dashboard.exe.config
+C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\Dashboard\bin\Debug\Dashboard.exe
+C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\Dashboard\bin\Debug\Dashboard.pdb
+C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\Dashboard\obj\Debug\Dashboard.csproj.AssemblyReference.cache
+C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\Dashboard\obj\Debug\Dashboard.frmPainelControle.resources
+C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\Dashboard\obj\Debug\Dashboard.Properties.Resources.resources
+C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\Dashboard\obj\Debug\Dashboard.csproj.GenerateResource.cache
+C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\Dashboard\obj\Debug\Dashboard.csproj.CoreCompileInputs.cache
+C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\Dashboard\obj\Debug\Dashboard.exe
+C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\Dashboard\obj\Debug\Dashboard.pdb
+C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\Dashboard\obj\Debug\Dashboard.frmInventStore.resources
