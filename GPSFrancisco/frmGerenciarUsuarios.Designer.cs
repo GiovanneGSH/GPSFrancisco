@@ -74,7 +74,7 @@
             this.gpbInformacoesUsuarios.Size = new System.Drawing.Size(758, 255);
             this.gpbInformacoesUsuarios.TabIndex = 4;
             this.gpbInformacoesUsuarios.TabStop = false;
-            this.gpbInformacoesUsuarios.Text = "Informações do usuário";
+            this.gpbInformacoesUsuarios.Text = "Informações do Usuário";
             // 
             // lblUsuariosCadastrados
             // 
@@ -301,7 +301,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(780, 557);
+            this.ClientSize = new System.Drawing.Size(780, 500);
             this.Controls.Add(this.pnlCrud);
             this.Controls.Add(this.gpbInformacoesUsuarios);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -309,7 +309,7 @@
             this.MaximizeBox = false;
             this.Name = "frmGerenciarUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = " ";
+            this.Text = " GPS - Gerenciar Usuários";
             this.Load += new System.EventHandler(this.frmGerenciarUsuarios_Load);
             this.gpbInformacoesUsuarios.ResumeLayout(false);
             this.gpbInformacoesUsuarios.PerformLayout();
