@@ -45,6 +45,19 @@ namespace GPSFrancisco
             btnLimpar.Enabled = false;
         }
 
+        private void habilitarCamposAtribuicoes()
+        {
+            txtCodigo.Enabled = false;
+            txtNome.Enabled = true;
+            btnCadastrar.Enabled = true;
+            btnAlterar.Enabled = false;
+            btnExcluir.Enabled = false;
+            btnLimpar.Enabled = true;
+            btnPesquisar.Enabled = true;
+            txtNome.Focus();
+        }
+
+
         private void habilitarCampos()
         {
             txtCodigo.Enabled = false;
@@ -180,37 +193,55 @@ namespace GPSFrancisco
 
         }
 
-        private int cadastrarVoluntarios(string nome, string email, string telCel, string endereco, string numero, string cep, string bairro, string cidade, string estado, int codAtr, DateTime data, DateTime hora, int status)
+        private void btnAlterar_Click(object sender, EventArgs e)
         {
-            MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "insert into tbVoluntarios(nome,email,telCel,endereco,numero,cep,bairro,cidade,estado,codAtr,data,hora,status)values(@nome,@email,@telCel,@endereco,@numero,@cep,@bairro,@cidade,@estado,@codAtr,@data,@hora,@status);";
-            comm.CommandType = CommandType.Text;
+            //alterarAtribuicoes();
+        }
 
-            comm.Parameters.Clear();
-            comm.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = nome;
-            comm.Parameters.Add("@email", MySqlDbType.VarChar, 100).Value = email;
-            comm.Parameters.Add("@telCel", MySqlDbType.VarChar, 15).Value = telCel;
-            comm.Parameters.Add("@endereco", MySqlDbType.VarChar, 100).Value = endereco;
-            comm.Parameters.Add("@numero", MySqlDbType.VarChar, 5).Value = numero;
-            comm.Parameters.Add("@cep", MySqlDbType.VarChar, 9).Value = cep;
-            comm.Parameters.Add("@bairro", MySqlDbType.VarChar, 100).Value = bairro;
-            comm.Parameters.Add("@cidade", MySqlDbType.VarChar, 100).Value = cidade;
-            comm.Parameters.Add("@estado", MySqlDbType.VarChar, 2).Value = estado;
-            comm.Parameters.Add("@codAtr", MySqlDbType.Int32).Value = codAtr;
-            comm.Parameters.Add("@data", MySqlDbType.Date, 100).Value = data;
-            comm.Parameters.Add("@hora", MySqlDbType.Time, 100).Value = hora;
-            comm.Parameters.Add("@status", MySqlDbType.Bit, 100).Value = status;
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Deseja excluir a atribuição?.", "Mensagem do sistema",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2
+                );
+            if (result.Equals(DialogResult.Yes))
+            {
+                if (excluirAtribuicoes(Convert.ToInt32(txtCodigo.Text)).Equals(1))
+                {
+                
+                    MessageBox.Show("Atribuição excluída com sucesso.", "Mensagem do sistema",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1
+                );
+                    limparCampos();
+                    desabilitarCampos();
+                    btnNovo.Enabled = true;
 
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao excluir.", "Mensagem do sistema",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1);
+                }
+            }
+        }
 
-            comm.Connection = Conexao.obterConexao();
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            limparCampos();
+            habilitarCamposAtribuicoes();
 
-            comm.ExecuteNonQuery();
+        }
 
-            int resp = comm.ExecuteNonQuery();
-
-            Conexao.fecharConexao();
-
-            return resp;
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            frmPesquisarAtribuicao abrir = new frmPesquisarAtribuicao();
+            abrir.Show();
+            this.Hide();
         }
     }
 }

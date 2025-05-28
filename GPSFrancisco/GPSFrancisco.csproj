@@ -129,6 +129,12 @@
     <Compile Include="frmMenuPrincipal.Designer.cs">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPesquisarAtribuicao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPesquisarAtribuicao.Designer.cs">
+      <DependentUpon>frmPesquisarAtribuicao.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPesquisarUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenuPrincipal.resx">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPesquisarAtribuicao.resx">
+      <DependentUpon>frmPesquisarAtribuicao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPesquisarUsuarios.resx">
       <DependentUpon>frmPesquisarUsuarios.cs</DependentUpon>
