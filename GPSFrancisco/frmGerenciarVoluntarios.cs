@@ -27,7 +27,77 @@ namespace GPSFrancisco
             InitializeComponent();
 
             carregaAtribuicoes();
+
+            desabilitarCamposNovo();
         }
+
+
+        public void desabilitarCamposNovo()
+        {
+            txtCodigo.Enabled = false;
+            txtNome.Enabled = false;
+            txtEmail.Enabled = false;
+            txtEndereco.Enabled = false;
+            txtBairro.Enabled = false;
+            txtCidade.Enabled = false;
+            txtNumero.Enabled = false;
+            mskTelefone.Enabled = false;
+            mskCep.Enabled = false;
+            cbbAtribuicoes.Enabled = false;
+            cbbEstado.Enabled = false;
+            dtpData.Enabled = false;
+            dtpHora.Enabled = false;
+            btnAlterar.Enabled = false;
+            btnCadastrar.Enabled = false;
+            btnExcluir.Enabled = false;
+            btnLimpar.Enabled = false;
+            txtNome.Focus();
+        }
+
+        public void habilitarCamposNovo()
+        {
+            txtCodigo.Enabled = false;
+            txtNome.Enabled = true;
+            txtEmail.Enabled = true;
+            txtEndereco.Enabled = true;
+            txtBairro.Enabled = true;
+            txtCidade.Enabled = true;
+            txtNumero.Enabled = true;
+            mskTelefone.Enabled = true;
+            mskCep.Enabled = true;
+            cbbAtribuicoes.Enabled = true;
+            cbbEstado.Enabled = true;
+            dtpData.Enabled = true;
+            dtpHora.Enabled = true;
+            btnCadastrar.Enabled = true;
+            btnExcluir.Enabled = true;
+            btnLimpar.Enabled = true;
+            txtNome.Focus();
+        }
+
+        public void limparCampos()
+        {
+            txtCodigo.Clear();
+            txtNome.Clear();
+            txtEmail.Clear();
+            txtEndereco.Clear();
+            txtBairro.Clear();
+            txtCidade.Clear();
+            txtNumero.Clear();
+            mskTelefone.Clear();
+            mskCep.Clear();
+            cbbAtribuicoes.Text = "";
+            cbbEstado.Text = "";
+            dtpData.Value = DateTime.Now;
+            dtpHora.Value = DateTime.Now;
+            btnCadastrar.Enabled = false;
+            btnExcluir.Enabled = false;
+            btnAlterar.Enabled = false;
+            btnLimpar.Enabled = true;
+            txtNome.Focus();
+        }
+
+
         private void frmGerenciarVoluntarios_Load(object sender, EventArgs e)
         {
             IntPtr hMenu = GetSystemMenu(this.Handle, false);
@@ -66,6 +136,15 @@ namespace GPSFrancisco
             Conexao.fecharConexao();                            
         }
 
+       
+            
+
+           
+        
+
+
+
+
         private int cadastrarVoluntarios(string nome, string email, string telCel, string endereco, string numero, string cep, string bairro, string cidade, string estado, DateTime data, DateTime hora, int status)
         {
             MySqlCommand comm = new MySqlCommand();
@@ -84,11 +163,20 @@ namespace GPSFrancisco
             comm.Parameters.Add("@estado", MySqlDbType.VarChar, 2).Value = estado;
             comm.Parameters.Add("@codAtr", MySqlDbType.Int32).Value = codigoAtribuicao;
             comm.Parameters.Add("@data", MySqlDbType.Date, 100).Value = data;
-            comm.Parameters.Add("@hora", MySqlDbType.Time, 100).Value = hora;
+
+            //--------Converte o dtp.Hora para o formato hora--------
+
+            DateTime horaSelecionada = dtpHora.Value;
+
+            TimeSpan apenasHora = horaSelecionada.TimeOfDay;
+            /*--------------------------------------------------*/
+
+
+            comm.Parameters.Add("@hora", MySqlDbType.Time, 100).Value = apenasHora;
             comm.Parameters.Add("@status", MySqlDbType.Bit, 100).Value = status;
 
 
-            comm.Connection = Conexao.obterConexao();         
+            comm.Connection = Conexao.obterConexao();          
                       
 
             int resp = comm.ExecuteNonQuery();
@@ -100,7 +188,8 @@ namespace GPSFrancisco
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            cadastrarVoluntarios(txtNome.Text, txtEmail.Text, mskTelefone.Text, txtEndereco.Text, txtNumero.Text, mskCep.Text, txtBairro.Text, txtCidade.Text, cbbEstado.Text, dtpData.Value, dtpHora.Value, ckbStatus.Checked.GetHashCode());
+
+             cadastrarVoluntarios(txtNome.Text, txtEmail.Text, mskTelefone.Text, txtEndereco.Text, txtNumero.Text, mskCep.Text, txtBairro.Text, txtCidade.Text, cbbEstado.Text, dtpData.Value, dtpHora.Value, ckbStatus.Checked.GetHashCode());
         }
 
 
@@ -136,7 +225,16 @@ namespace GPSFrancisco
             txtCodigo.Text = codigoAtribuicao.ToString();
         }
 
-       
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            habilitarCamposNovo();
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            limparCampos();
+            desabilitarCamposNovo();
+        }
     }
 
    

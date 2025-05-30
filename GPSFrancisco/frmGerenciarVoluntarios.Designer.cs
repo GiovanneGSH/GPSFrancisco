@@ -124,6 +124,7 @@
             this.btnLimpar.Text = "&Limpar";
             this.btnLimpar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnAlterar
             // 
@@ -173,6 +174,7 @@
             this.btnNovo.Text = "&Novo";
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // gpbInformacoesUsuarios
             // 
@@ -250,7 +252,7 @@
             // 
             this.txtNumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txtNumero.Location = new System.Drawing.Point(546, 164);
-            this.txtNumero.MaxLength = 12;
+            this.txtNumero.MaxLength = 5;
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(72, 26);
             this.txtNumero.TabIndex = 6;
@@ -277,7 +279,7 @@
             // 
             this.txtCidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txtCidade.Location = new System.Drawing.Point(20, 218);
-            this.txtCidade.MaxLength = 12;
+            this.txtCidade.MaxLength = 100;
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(200, 26);
             this.txtCidade.TabIndex = 8;
@@ -295,7 +297,7 @@
             // 
             this.txtBairro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txtBairro.Location = new System.Drawing.Point(332, 164);
-            this.txtBairro.MaxLength = 12;
+            this.txtBairro.MaxLength = 100;
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(200, 26);
             this.txtBairro.TabIndex = 5;
@@ -322,7 +324,7 @@
             // 
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txtNome.Location = new System.Drawing.Point(20, 109);
-            this.txtNome.MaxLength = 12;
+            this.txtNome.MaxLength = 100;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(213, 26);
             this.txtNome.TabIndex = 1;
@@ -340,7 +342,7 @@
             // 
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txtEmail.Location = new System.Drawing.Point(267, 109);
-            this.txtEmail.MaxLength = 12;
+            this.txtEmail.MaxLength = 100;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(150, 26);
             this.txtEmail.TabIndex = 2;
@@ -357,7 +359,7 @@
             // txtEndereco
             // 
             this.txtEndereco.Location = new System.Drawing.Point(20, 163);
-            this.txtEndereco.MaxLength = 50;
+            this.txtEndereco.MaxLength = 100;
             this.txtEndereco.Name = "txtEndereco";
             this.txtEndereco.Size = new System.Drawing.Size(296, 26);
             this.txtEndereco.TabIndex = 4;
@@ -375,7 +377,7 @@
             // 
             this.txtCodigo.Enabled = false;
             this.txtCodigo.Location = new System.Drawing.Point(20, 54);
-            this.txtCodigo.MaxLength = 5;
+            this.txtCodigo.MaxLength = 11;
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(100, 26);
             this.txtCodigo.TabIndex = 0;
