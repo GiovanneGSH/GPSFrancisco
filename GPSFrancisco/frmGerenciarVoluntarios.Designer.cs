@@ -68,6 +68,8 @@
             this.lblData = new System.Windows.Forms.Label();
             this.lblAtribuições = new System.Windows.Forms.Label();
             this.cbbAtribuicoes = new System.Windows.Forms.ComboBox();
+            this.txtComplemento = new System.Windows.Forms.TextBox();
+            this.lblComplemento = new System.Windows.Forms.Label();
             this.pnlCrud.SuspendLayout();
             this.gpbInformacoesUsuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbFoto)).BeginInit();
@@ -95,7 +97,7 @@
             this.btnVoltar.Location = new System.Drawing.Point(602, 155);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(125, 48);
-            this.btnVoltar.TabIndex = 20;
+            this.btnVoltar.TabIndex = 21;
             this.btnVoltar.Text = "&Voltar";
             this.btnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnVoltar.UseVisualStyleBackColor = true;
@@ -108,7 +110,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(541, 26);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(125, 48);
-            this.btnExcluir.TabIndex = 17;
+            this.btnExcluir.TabIndex = 18;
             this.btnExcluir.Text = "&Excluir";
             this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExcluir.UseVisualStyleBackColor = true;
@@ -120,7 +122,7 @@
             this.btnLimpar.Location = new System.Drawing.Point(391, 102);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(125, 48);
-            this.btnLimpar.TabIndex = 19;
+            this.btnLimpar.TabIndex = 20;
             this.btnLimpar.Text = "&Limpar";
             this.btnLimpar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLimpar.UseVisualStyleBackColor = true;
@@ -133,7 +135,7 @@
             this.btnAlterar.Location = new System.Drawing.Point(391, 26);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(125, 48);
-            this.btnAlterar.TabIndex = 16;
+            this.btnAlterar.TabIndex = 17;
             this.btnAlterar.Text = "&Alterar";
             this.btnAlterar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAlterar.UseVisualStyleBackColor = true;
@@ -145,7 +147,7 @@
             this.btnCadastrar.Location = new System.Drawing.Point(241, 26);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(125, 48);
-            this.btnCadastrar.TabIndex = 15;
+            this.btnCadastrar.TabIndex = 16;
             this.btnCadastrar.Text = "&Cadastrar";
             this.btnCadastrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCadastrar.UseVisualStyleBackColor = true;
@@ -158,10 +160,11 @@
             this.btnPesquisar.Location = new System.Drawing.Point(241, 102);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(125, 48);
-            this.btnPesquisar.TabIndex = 18;
+            this.btnPesquisar.TabIndex = 19;
             this.btnPesquisar.Text = "&Pesquisar";
             this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // btnNovo
             // 
@@ -170,7 +173,7 @@
             this.btnNovo.Location = new System.Drawing.Point(91, 26);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(125, 48);
-            this.btnNovo.TabIndex = 14;
+            this.btnNovo.TabIndex = 15;
             this.btnNovo.Text = "&Novo";
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;
@@ -178,6 +181,8 @@
             // 
             // gpbInformacoesUsuarios
             // 
+            this.gpbInformacoesUsuarios.Controls.Add(this.txtComplemento);
+            this.gpbInformacoesUsuarios.Controls.Add(this.lblComplemento);
             this.gpbInformacoesUsuarios.Controls.Add(this.pcbFoto);
             this.gpbInformacoesUsuarios.Controls.Add(this.mskCep);
             this.gpbInformacoesUsuarios.Controls.Add(this.mskTelefone);
@@ -222,6 +227,7 @@
             this.mskCep.Name = "mskCep";
             this.mskCep.Size = new System.Drawing.Size(85, 26);
             this.mskCep.TabIndex = 7;
+            this.mskCep.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mskCep_KeyDown);
             // 
             // mskTelefone
             // 
@@ -234,7 +240,7 @@
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
-            this.lblEstado.Location = new System.Drawing.Point(242, 195);
+            this.lblEstado.Location = new System.Drawing.Point(451, 195);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(60, 20);
             this.lblEstado.TabIndex = 17;
@@ -243,10 +249,10 @@
             // cbbEstado
             // 
             this.cbbEstado.FormattingEnabled = true;
-            this.cbbEstado.Location = new System.Drawing.Point(246, 216);
+            this.cbbEstado.Location = new System.Drawing.Point(455, 216);
             this.cbbEstado.Name = "cbbEstado";
-            this.cbbEstado.Size = new System.Drawing.Size(163, 28);
-            this.cbbEstado.TabIndex = 9;
+            this.cbbEstado.Size = new System.Drawing.Size(51, 28);
+            this.cbbEstado.TabIndex = 10;
             // 
             // txtNumero
             // 
@@ -278,16 +284,16 @@
             // txtCidade
             // 
             this.txtCidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtCidade.Location = new System.Drawing.Point(20, 218);
+            this.txtCidade.Location = new System.Drawing.Point(241, 218);
             this.txtCidade.MaxLength = 100;
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(200, 26);
-            this.txtCidade.TabIndex = 8;
+            this.txtCidade.TabIndex = 9;
             // 
             // lblCidade
             // 
             this.lblCidade.AutoSize = true;
-            this.lblCidade.Location = new System.Drawing.Point(16, 195);
+            this.lblCidade.Location = new System.Drawing.Point(237, 195);
             this.lblCidade.Name = "lblCidade";
             this.lblCidade.Size = new System.Drawing.Size(59, 20);
             this.lblCidade.TabIndex = 11;
@@ -415,7 +421,7 @@
             this.ckbStatus.Location = new System.Drawing.Point(612, 50);
             this.ckbStatus.Name = "ckbStatus";
             this.ckbStatus.Size = new System.Drawing.Size(63, 24);
-            this.ckbStatus.TabIndex = 13;
+            this.ckbStatus.TabIndex = 14;
             this.ckbStatus.Text = "Ativo";
             this.ckbStatus.UseVisualStyleBackColor = true;
             // 
@@ -425,7 +431,7 @@
             this.dtpHora.Location = new System.Drawing.Point(503, 49);
             this.dtpHora.Name = "dtpHora";
             this.dtpHora.Size = new System.Drawing.Size(82, 26);
-            this.dtpHora.TabIndex = 12;
+            this.dtpHora.TabIndex = 13;
             // 
             // dtpData
             // 
@@ -433,7 +439,7 @@
             this.dtpData.Location = new System.Drawing.Point(391, 49);
             this.dtpData.Name = "dtpData";
             this.dtpData.Size = new System.Drawing.Size(102, 26);
-            this.dtpData.TabIndex = 11;
+            this.dtpData.TabIndex = 12;
             // 
             // lblStatus
             // 
@@ -477,8 +483,26 @@
             this.cbbAtribuicoes.Location = new System.Drawing.Point(20, 48);
             this.cbbAtribuicoes.Name = "cbbAtribuicoes";
             this.cbbAtribuicoes.Size = new System.Drawing.Size(346, 28);
-            this.cbbAtribuicoes.TabIndex = 10;
+            this.cbbAtribuicoes.TabIndex = 11;
             this.cbbAtribuicoes.SelectedIndexChanged += new System.EventHandler(this.cbbAtribuicoes_SelectedIndexChanged);
+            // 
+            // txtComplemento
+            // 
+            this.txtComplemento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtComplemento.Location = new System.Drawing.Point(20, 218);
+            this.txtComplemento.MaxLength = 100;
+            this.txtComplemento.Name = "txtComplemento";
+            this.txtComplemento.Size = new System.Drawing.Size(200, 26);
+            this.txtComplemento.TabIndex = 8;
+            // 
+            // lblComplemento
+            // 
+            this.lblComplemento.AutoSize = true;
+            this.lblComplemento.Location = new System.Drawing.Point(16, 195);
+            this.lblComplemento.Name = "lblComplemento";
+            this.lblComplemento.Size = new System.Drawing.Size(108, 20);
+            this.lblComplemento.TabIndex = 20;
+            this.lblComplemento.Text = "Complemento";
             // 
             // frmGerenciarVoluntarios
             // 
@@ -546,5 +570,7 @@
         private System.Windows.Forms.Label lblAtribuições;
         private System.Windows.Forms.ComboBox cbbAtribuicoes;
         private System.Windows.Forms.PictureBox pcbFoto;
+        private System.Windows.Forms.TextBox txtComplemento;
+        private System.Windows.Forms.Label lblComplemento;
     }
 }

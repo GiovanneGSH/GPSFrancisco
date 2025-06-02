@@ -9,6 +9,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+// importando a API de buscar CEP
+using MosaicoSolutions.ViaCep;
 
 namespace GPSFrancisco
 {
@@ -29,6 +31,20 @@ namespace GPSFrancisco
             carregaAtribuicoes();
 
             desabilitarCamposNovo();
+
+            
+        }
+
+        //Criando método construtor com parametros
+        public frmGerenciarVoluntarios (string nome)
+        {
+            InitializeComponent();
+
+            carregaAtribuicoes();
+
+            desabilitarCamposNovo();
+
+            txtNome.Text = nome;
         }
 
 
@@ -41,6 +57,7 @@ namespace GPSFrancisco
             txtBairro.Enabled = false;
             txtCidade.Enabled = false;
             txtNumero.Enabled = false;
+            txtComplemento.Enabled = false;
             mskTelefone.Enabled = false;
             mskCep.Enabled = false;
             cbbAtribuicoes.Enabled = false;
@@ -63,6 +80,7 @@ namespace GPSFrancisco
             txtBairro.Enabled = true;
             txtCidade.Enabled = true;
             txtNumero.Enabled = true;
+            txtComplemento.Enabled = true;
             mskTelefone.Enabled = true;
             mskCep.Enabled = true;
             cbbAtribuicoes.Enabled = true;
@@ -84,6 +102,7 @@ namespace GPSFrancisco
             txtBairro.Clear();
             txtCidade.Clear();
             txtNumero.Clear();
+            txtComplemento.Clear();
             mskTelefone.Clear();
             mskCep.Clear();
             cbbAtribuicoes.Text = "";
@@ -98,7 +117,9 @@ namespace GPSFrancisco
         }
 
 
-        private void frmGerenciarVoluntarios_Load(object sender, EventArgs e)
+     
+
+            private void frmGerenciarVoluntarios_Load(object sender, EventArgs e)
         {
             IntPtr hMenu = GetSystemMenu(this.Handle, false);
             int MenuCount = GetMenuItemCount(hMenu) - 1;
@@ -134,16 +155,8 @@ namespace GPSFrancisco
             }
 
             Conexao.fecharConexao();                            
-        }
-
-       
-            
-
-           
-        
-
-
-
+        }    
+         
 
         private int cadastrarVoluntarios(string nome, string email, string telCel, string endereco, string numero, string cep, string bairro, string cidade, string estado, DateTime data, DateTime hora, int status)
         {
@@ -189,7 +202,49 @@ namespace GPSFrancisco
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
 
-             cadastrarVoluntarios(txtNome.Text, txtEmail.Text, mskTelefone.Text, txtEndereco.Text, txtNumero.Text, mskCep.Text, txtBairro.Text, txtCidade.Text, cbbEstado.Text, dtpData.Value, dtpHora.Value, ckbStatus.Checked.GetHashCode());
+            //verificando se os campos foram preenchidos 
+
+            if (txtNome.Text.Equals("") || txtEmail.Text.Equals("") || mskTelefone.Text.Equals("(  )    -") || txtEndereco.Text.Equals("") || txtBairro.Text.Equals("") || txtNumero.Text.Equals("") || mskCep.Text.Equals("     -") || txtCidade.Text.Equals("") || cbbEstado.Text.Equals("") || cbbAtribuicoes.Text.Equals("") || ckbStatus.Checked == false)
+            {
+                MessageBox.Show("Favor preencher os campos!", "Mensagem do sistema",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error,
+                MessageBoxDefaultButton.Button1);
+                
+                txtNome.Focus();                
+               
+            }
+            else if (mskTelefone.Text.Length < 13)
+            {
+                MessageBox.Show("Favor preencher o campo Número!", "Mensagem do sistema",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning,
+                    MessageBoxDefaultButton.Button1);
+
+                mskTelefone.Focus();
+                
+            }
+            else if (mskCep.Text.Length < 9)
+            {
+                MessageBox.Show("Favor preencher o campo CEP!", "Mensagem do sistema",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning,
+                    MessageBoxDefaultButton.Button1);
+
+                mskCep.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Cadastrado com sucesso", "Mensagem do sistema",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1);
+                limparCampos();
+                desabilitarCamposNovo();
+            }
+
+
+            //cadastrarVoluntarios(txtNome.Text, txtEmail.Text, mskTelefone.Text, txtEndereco.Text, txtNumero.Text, mskCep.Text, txtBairro.Text, txtCidade.Text, cbbEstado.Text, dtpData.Value, dtpHora.Value, ckbStatus.Checked.GetHashCode());
         }
 
 
@@ -234,6 +289,53 @@ namespace GPSFrancisco
         {
             limparCampos();
             desabilitarCamposNovo();
+        }
+
+
+
+        //criando o método busca cep
+        public void buscaCEP(string cep)
+        {
+            
+                var viaCEPService = ViaCepService.Default();
+            try
+            {
+                var endereco = viaCEPService.ObterEndereco(cep);
+
+                txtEndereco.Text = endereco.Logradouro.ToString();
+                txtCidade.Text = endereco.Localidade.ToString();
+                txtBairro.Text = endereco.Bairro.ToString();                
+                cbbEstado.Text = endereco.UF.ToString();
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("Favor inserir um CEP válido", "Mensagem do sistema",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1);
+
+                mskCep.Text = "";
+                mskCep.Focus();
+            }
+            
+        }
+
+
+        private void mskCep_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buscaCEP(mskCep.Text);
+                txtNumero.Focus();
+            }
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            frmPesquisarVoluntarios abrir = new frmPesquisarVoluntarios();            
+            abrir.Show();
+            this.Hide();
         }
     }
 

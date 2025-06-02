@@ -130,6 +130,7 @@
             this.ltbPesquisarAtribuicao.Name = "ltbPesquisarAtribuicao";
             this.ltbPesquisarAtribuicao.Size = new System.Drawing.Size(481, 104);
             this.ltbPesquisarAtribuicao.TabIndex = 8;
+            this.ltbPesquisarAtribuicao.SelectedIndexChanged += new System.EventHandler(this.ltbPesquisarAtribuicao_SelectedIndexChanged);
             // 
             // frmPesquisarAtribuicao
             // 

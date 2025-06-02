@@ -16,5 +16,10 @@ namespace GPSFrancisco
         {
             InitializeComponent();
         }
+
+        private void ltbPesquisarAtribuicao_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string item = ltbPesquisarAtribuicao.SelectedItem.ToString();
+        }
     }
 }
