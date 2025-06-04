@@ -13,13 +13,10 @@ senha varchar(12) not null,
 primary key(codUsu));
 
 
-<<<<<<< HEAD
 -- insert into tbUsuarios(nome,senha)values('senac','senac');
 -- insert into tbUsuarios(nome,senha)values('admin','admin');
 
 
-=======
->>>>>>> 591f0fed1aebd9c6102131aadfd2a7f47c2f2884
 -- criando a tabela atribuições
 
 create table tbAtribuicoes(
@@ -46,11 +43,7 @@ cidade varchar(100),
 estado char(2),
 codAtr int not null,
 data date,
-<<<<<<< HEAD
 hora time,
-=======
-hora int,
->>>>>>> 591f0fed1aebd9c6102131aadfd2a7f47c2f2884
 status int(1),
 primary key(codVol),
 foreign key(codAtr)references tbAtribuicoes(codAtr));
@@ -75,3 +68,8 @@ foreign key(codAtr)references tbAtribuicoes(codAtr));
 
 -- select * from tbUsuarios where nome = 'senac';
 
+
+-- SELECT * FROM tbvoluntarios WHERE codVol = codVol;" busca voluntário por código
+
+
+--SELECT * FROM tbvoluntarios WHERE @nome like '%@nome%'; busca voluntário por nome

@@ -74,6 +74,7 @@
             this.rdbCodigoVoluntario.TabIndex = 1;
             this.rdbCodigoVoluntario.Text = "Código";
             this.rdbCodigoVoluntario.UseVisualStyleBackColor = true;
+            this.rdbCodigoVoluntario.CheckedChanged += new System.EventHandler(this.rdbCodigoVoluntario_CheckedChanged);
             // 
             // rdbNomeVoluntario
             // 
@@ -85,9 +86,11 @@
             this.rdbNomeVoluntario.TabIndex = 2;
             this.rdbNomeVoluntario.Text = "Nome";
             this.rdbNomeVoluntario.UseVisualStyleBackColor = true;
+            this.rdbNomeVoluntario.CheckedChanged += new System.EventHandler(this.rdbNomeVoluntario_CheckedChanged);
             // 
             // txtNomeVoluntario
             // 
+            this.txtNomeVoluntario.Enabled = false;
             this.txtNomeVoluntario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomeVoluntario.Location = new System.Drawing.Point(92, 55);
             this.txtNomeVoluntario.MaxLength = 50;
@@ -97,6 +100,7 @@
             // 
             // btnPesquisarVoluntario
             // 
+            this.btnPesquisarVoluntario.Enabled = false;
             this.btnPesquisarVoluntario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPesquisarVoluntario.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisarVoluntario.Image")));
             this.btnPesquisarVoluntario.Location = new System.Drawing.Point(499, 10);
@@ -111,6 +115,7 @@
             // 
             // btnLimparNome
             // 
+            this.btnLimparNome.Enabled = false;
             this.btnLimparNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimparNome.Image = ((System.Drawing.Image)(resources.GetObject("btnLimparNome.Image")));
             this.btnLimparNome.Location = new System.Drawing.Point(499, 116);
@@ -121,9 +126,11 @@
             this.btnLimparNome.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnLimparNome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnLimparNome.UseVisualStyleBackColor = true;
+            this.btnLimparNome.Click += new System.EventHandler(this.btnLimparNome_Click);
             // 
             // ltbPesquisarVoluntario
             // 
+            this.ltbPesquisarVoluntario.Enabled = false;
             this.ltbPesquisarVoluntario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ltbPesquisarVoluntario.FormattingEnabled = true;
             this.ltbPesquisarVoluntario.ItemHeight = 20;

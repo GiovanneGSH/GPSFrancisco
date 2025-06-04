@@ -232,7 +232,7 @@ namespace GPSFrancisco
         public void buscarUsuariosCadastrados()
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "select nome from tbusuarios order by nome asc;";
+            comm.CommandText = "SELECT nome FROM tbusuarios ORDER BY nome ASC;";
             comm.CommandType = CommandType.Text;
 
             comm.Parameters.Clear();

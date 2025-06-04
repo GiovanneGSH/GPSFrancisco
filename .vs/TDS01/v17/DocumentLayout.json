@@ -1,12 +1,102 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|c:\\users\\giovanne.shenrique\\documents\\visual studio 2022\\tds01\\gpsfrancisco\\frmpesquisarvoluntarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\frmpesquisarvoluntarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|c:\\users\\giovanne.shenrique\\documents\\visual studio 2022\\tds01\\gpsfrancisco\\frmgerenciarusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\frmgerenciarusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|c:\\users\\giovanne.shenrique\\documents\\visual studio 2022\\tds01\\gpsfrancisco\\frmgerenciarusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\frmgerenciarusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|c:\\users\\giovanne.shenrique\\documents\\visual studio 2022\\tds01\\gpsfrancisco\\frmatribuicoes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\frmatribuicoes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|c:\\users\\giovanne.shenrique\\documents\\visual studio 2022\\tds01\\gpsfrancisco\\frmpesquisarvoluntarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\frmpesquisarvoluntarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmGerenciarUsuarios.cs",
+              "DocumentMoniker": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmGerenciarUsuarios.cs",
+              "RelativeDocumentMoniker": "GPSFrancisco\\frmGerenciarUsuarios.cs",
+              "ToolTip": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmGerenciarUsuarios.cs",
+              "RelativeToolTip": "GPSFrancisco\\frmGerenciarUsuarios.cs",
+              "ViewState": "AgIAAP0AAAAAAAAAAAAAABIBAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-04T12:21:15.155Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmGerenciarUsuarios.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmGerenciarUsuarios.cs",
+              "RelativeDocumentMoniker": "GPSFrancisco\\frmGerenciarUsuarios.cs",
+              "ToolTip": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmGerenciarUsuarios.cs [Design]",
+              "RelativeToolTip": "GPSFrancisco\\frmGerenciarUsuarios.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-04T12:21:12.648Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmPesquisarVoluntarios.cs",
+              "DocumentMoniker": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmPesquisarVoluntarios.cs",
+              "RelativeDocumentMoniker": "GPSFrancisco\\frmPesquisarVoluntarios.cs",
+              "ToolTip": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmPesquisarVoluntarios.cs",
+              "RelativeToolTip": "GPSFrancisco\\frmPesquisarVoluntarios.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAlwHoAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-04T11:26:30.677Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmPesquisarVoluntarios.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmPesquisarVoluntarios.cs",
+              "RelativeDocumentMoniker": "GPSFrancisco\\frmPesquisarVoluntarios.cs",
+              "ToolTip": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmPesquisarVoluntarios.cs [Design]",
+              "RelativeToolTip": "GPSFrancisco\\frmPesquisarVoluntarios.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-04T11:26:26.69Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmAtribuicoes.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmAtribuicoes.cs",
+              "RelativeDocumentMoniker": "GPSFrancisco\\frmAtribuicoes.cs",
+              "ToolTip": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmAtribuicoes.cs [Design]",
+              "RelativeToolTip": "GPSFrancisco\\frmAtribuicoes.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T13:53:44.32Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
