@@ -26,7 +26,7 @@ primary key(codAtr));
 
 --insert into tbAtribuicoes(nome)values(nome);
 
-select * from tbAtribuicoes order by nome;
+-- select * from tbAtribuicoes order by nome;
 
 -- criando a tabela voluntários
 
@@ -42,11 +42,21 @@ bairro varchar(100),
 cidade varchar(100),
 estado char(2),
 codAtr int not null,
-data date,
-hora time,
+data datetime,
+hora datetime,
 status int(1),
 primary key(codVol),
 foreign key(codAtr)references tbAtribuicoes(codAtr));
+
+
+create table tbFotos(
+codFotos int not null auto_increment,
+nome varchar(100),
+campo_imagem longBlob,
+primary key(codFotos));
+
+
+
 
 -- insert into tbVoluntarios(nome,email,telCel,endereco,numero,cep,bairro,cidade,estado,codAtr,data,hora,status)values(nome,email,telCel,endereco,numero,cep,bairro,cidade,estado,codAtr,data,hora,status);
 
@@ -73,3 +83,10 @@ foreign key(codAtr)references tbAtribuicoes(codAtr));
 
 
 --SELECT * FROM tbvoluntarios WHERE @nome like '%@nome%'; busca voluntário por nome
+
+--select * from tbVoluntarios where nome = @nome;
+
+
+--Inserir imagem no banco de dados
+
+-- insert into tbfotos(nome, campo_imagem)values(@nome,@campo_imagem);

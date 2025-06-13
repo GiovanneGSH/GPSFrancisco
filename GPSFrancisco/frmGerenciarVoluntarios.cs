@@ -45,6 +45,11 @@ namespace GPSFrancisco
             desabilitarCamposNovo();
 
             txtNome.Text = nome;
+
+            carregaVoluntariosPorNome(txtNome.Text);
+
+            habilitarCamposAlterar();
+
         }
 
 
@@ -93,6 +98,30 @@ namespace GPSFrancisco
             txtNome.Focus();
         }
 
+        public void habilitarCamposAlterar()
+        {
+            txtCodigo.Enabled = false;
+            txtNome.Enabled = true;
+            txtEmail.Enabled = true;
+            txtEndereco.Enabled = true;
+            txtBairro.Enabled = true;
+            txtCidade.Enabled = true;
+            txtNumero.Enabled = true;
+            txtComplemento.Enabled = true;
+            mskTelefone.Enabled = true;
+            mskCep.Enabled = true;
+            cbbAtribuicoes.Enabled = true;
+            cbbEstado.Enabled = true;
+            dtpData.Enabled = true;
+            dtpHora.Enabled = true;
+            btnCadastrar.Enabled = false;
+            btnExcluir.Enabled = true;
+            btnLimpar.Enabled = true;
+            btnNovo.Enabled = false;
+            btnAlterar.Enabled = true;
+            txtNome.Focus();
+        }
+
         public void limparCampos()
         {
             txtCodigo.Clear();
@@ -114,10 +143,7 @@ namespace GPSFrancisco
             btnAlterar.Enabled = false;
             btnLimpar.Enabled = true;
             txtNome.Focus();
-        }
-
-
-     
+        }            
 
             private void frmGerenciarVoluntarios_Load(object sender, EventArgs e)
         {
@@ -132,7 +158,6 @@ namespace GPSFrancisco
             abrir.Show();
             this.Hide();
         }
-
 
 
 // buscando atribuições para carregar na combo
@@ -175,17 +200,17 @@ namespace GPSFrancisco
             comm.Parameters.Add("@cidade", MySqlDbType.VarChar, 100).Value = cidade;
             comm.Parameters.Add("@estado", MySqlDbType.VarChar, 2).Value = estado;
             comm.Parameters.Add("@codAtr", MySqlDbType.Int32).Value = codigoAtribuicao;
-            comm.Parameters.Add("@data", MySqlDbType.Date, 100).Value = data;
-
+            comm.Parameters.Add("@data", MySqlDbType.DateTime).Value = data;
+            
             //--------Converte o dtp.Hora para o formato hora--------
 
-            DateTime horaSelecionada = dtpHora.Value;
+            //DateTime horaSelecionada = dtpHora.Value;
 
-            TimeSpan apenasHora = horaSelecionada.TimeOfDay;
+            //TimeSpan apenasHora = horaSelecionada.TimeOfDay;
             /*--------------------------------------------------*/
 
 
-            comm.Parameters.Add("@hora", MySqlDbType.Time, 100).Value = apenasHora;
+            comm.Parameters.Add("@hora", MySqlDbType.DateTime).Value = hora;
             comm.Parameters.Add("@status", MySqlDbType.Bit, 100).Value = status;
 
 
@@ -235,7 +260,10 @@ namespace GPSFrancisco
             }
             else
             {
-                MessageBox.Show("Cadastrado com sucesso", "Mensagem do sistema",
+
+                cadastrarVoluntarios(txtNome.Text, txtEmail.Text, mskTelefone.Text, txtEndereco.Text, txtNumero.Text, mskCep.Text, txtBairro.Text, txtCidade.Text, cbbEstado.Text, dtpData.Value, dtpHora.Value, ckbStatus.Checked.GetHashCode());
+
+                MessageBox.Show("Cadastrado com sucesso!", "Mensagem do sistema",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information,
                     MessageBoxDefaultButton.Button1);
@@ -321,6 +349,64 @@ namespace GPSFrancisco
             
         }
 
+        public void carregaVoluntariosPorNome(string nome)
+        {
+            bool status = false;
+
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select * from tbVoluntarios where nome = @nome;";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+
+            comm.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = nome;
+
+
+            comm.Connection = Conexao.obterConexao();
+
+            MySqlDataReader DR;
+            DR = comm.ExecuteReader();
+            DR.Read();
+
+            //Checando o campo status
+
+            if (DR.GetInt32(13).Equals(1))
+            {
+                status = true;
+            }
+            if (DR.GetInt32(13).Equals(0))
+            {
+                status = false;
+            }
+
+            //Trazendo os dados para o formulário:
+
+            txtCodigo.Text = Convert.ToString(DR.GetInt32(0));
+            txtNome.Text = DR.GetString(1);
+            txtEmail.Text = DR.GetString(2);
+            mskTelefone.Text = DR.GetString(3);
+            txtEndereco.Text = DR.GetString(4);
+            txtNumero.Text = DR.GetString(5);
+            mskCep.Text= DR.GetString(6);
+            txtBairro.Text = DR.GetString(7);
+            txtCidade.Text = DR.GetString(8);
+            cbbEstado.Text = DR.GetString(9);          
+                       
+            //cbbAtribuicoes.Text = Convert.ToString(DR.GetInt32(10));
+
+            //cbbAtribuicoes.Text = Convert.ToString(DR.GetInt32(10));
+
+            //cbbAtribuicoes.SelectedItem = (DR.GetInt32(10));
+
+            dtpData.Value = DR.GetDateTime(11);
+            dtpHora.Value = DR.GetDateTime(12);
+            ckbStatus.Checked = status;          
+
+            Conexao.fecharConexao();
+
+        }
+
+
 
         private void mskCep_KeyDown(object sender, KeyEventArgs e)
         {
@@ -336,6 +422,15 @@ namespace GPSFrancisco
             frmPesquisarVoluntarios abrir = new frmPesquisarVoluntarios();            
             abrir.Show();
             this.Hide();
+        }
+
+        private void btnCarregar_Click(object sender, EventArgs e)
+        {
+            //pcbFoto.Image = Image.FromFile("");
+
+            ofdCarregar.ShowDialog();
+            string path = ofdCarregar.FileName;
+            pcbFoto.Image = Image.FromFile(path);
         }
     }
 

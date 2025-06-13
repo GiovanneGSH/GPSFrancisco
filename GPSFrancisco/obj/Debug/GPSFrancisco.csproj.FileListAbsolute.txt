@@ -53,3 +53,6 @@ C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\GPSFrancisco\bin\
 C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\GPSFrancisco\bin\Debug\Newtonsoft.Json.pdb
 C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\GPSFrancisco\bin\Debug\Newtonsoft.Json.xml
 C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\GPSFrancisco\obj\Debug\GPSFrancisco.frmPesquisarVoluntarios.resources
+C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\GPSFrancisco\obj\Debug\GPSFrancisco.frmCalendario.resources
+C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\GPSFrancisco\obj\Debug\GPSFrancisco.frmCarregandoFotoBD.resources
+C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\GPSFrancisco\obj\Debug\GPSFrancisco.frmRecuperarImagem.resources

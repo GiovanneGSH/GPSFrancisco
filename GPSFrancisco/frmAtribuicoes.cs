@@ -45,6 +45,17 @@ namespace GPSFrancisco
             btnLimpar.Enabled = false;
         }
 
+        private void desabilitarCamposNovo()
+        {
+            txtCodigo.Enabled = false;
+            txtNome.Enabled = false;
+            btnNovo.Enabled = true;
+            btnCadastrar.Enabled = false;
+            btnAlterar.Enabled = false;
+            btnExcluir.Enabled = false;
+            btnLimpar.Enabled = false;
+        }
+
         private void habilitarCamposAtribuicoes()
         {
             txtCodigo.Enabled = false;
@@ -188,7 +199,7 @@ namespace GPSFrancisco
                     MessageBoxDefaultButton.Button1);
                 }
                 limparCampos();
-                desabilitarCampos();
+                desabilitarCamposNovo();
             }
 
         }

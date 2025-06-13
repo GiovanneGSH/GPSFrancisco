@@ -105,7 +105,7 @@ namespace GPSFrancisco
         {
 
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "select * from tbUsuarios where nome like '%" + usuarios + "%';";
+            comm.CommandText = "select * from tbUsuarios where nome like '%" + usuarios + "%';"; 
             comm.CommandType = CommandType.Text;
 
             comm.Connection = Conexao.obterConexao();

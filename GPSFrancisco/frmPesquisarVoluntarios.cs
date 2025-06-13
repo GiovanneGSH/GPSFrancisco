@@ -101,17 +101,13 @@ namespace GPSFrancisco
         private void buscarVoluntariosPorNome(string nome)
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "SELECT * FROM tbvoluntarios WHERE @nome LIKE '%"+nome+"%';";
-            comm.CommandType = CommandType.Text;
-
-            comm.Parameters.Clear();
-            comm.Parameters.Add("@nome", MySqlDbType.VarChar,100).Value = nome;
+            comm.CommandText = "SELECT * FROM tbVoluntarios WHERE nome LIKE '%"+nome+"%';"; 
+            comm.CommandType = CommandType.Text;           
 
             comm.Connection = Conexao.obterConexao();
 
             MySqlDataReader DR;
-            DR = comm.ExecuteReader();
-            DR.Read();
+            DR = comm.ExecuteReader();            
 
             ltbPesquisarVoluntario.Items.Clear();
 
