@@ -3,32 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\gpsfrancisco\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|c:\\users\\giovanne.shenrique\\documents\\visual studio 2022\\tds01\\gpsfrancisco\\frmrecuperarimagem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\frmrecuperarimagem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|c:\\users\\giovanne.shenrique\\documents\\visual studio 2022\\tds01\\gpsfrancisco\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\gpsfrancisco\\frmgerenciarusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\frmgerenciarusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|c:\\users\\giovanne.shenrique\\documents\\visual studio 2022\\tds01\\gpsfrancisco\\frmgerenciarvoluntarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\frmgerenciarvoluntarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\gpsfrancisco\\frmgerenciarvoluntarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\frmgerenciarvoluntarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\gpsfrancisco\\frmcalendario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\frmcalendario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|c:\\users\\giovanne.shenrique\\documents\\visual studio 2022\\tds01\\gpsfrancisco\\frmcarregandofotobd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\gpsfrancisco\\frmcarregandofotobd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\frmcarregandofotobd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\gpsfrancisco\\frmcarregandofotobd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\frmcarregandofotobd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|c:\\users\\giovanne.shenrique\\documents\\visual studio 2022\\tds01\\gpsfrancisco\\frmcarregandofotobd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\frmcarregandofotobd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|c:\\users\\giovanne.shenrique\\documents\\visual studio 2022\\tds01\\gpsfrancisco\\frmrecuperarimagem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\frmrecuperarimagem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\gpsfrancisco\\frmgerenciarvoluntarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\frmgerenciarvoluntarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\gpsfrancisco\\frmgerenciarusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\frmgerenciarusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\gpsfrancisco\\frmgerenciarvoluntarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\frmgerenciarvoluntarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{38903873-27EE-442C-95CD-D97A96D90671}|GPSFrancisco\\GPSFrancisco.csproj|C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\gpsfrancisco\\frmpesquisarvoluntarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -58,24 +66,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "frmCarregandoFotoBD.cs",
-              "DocumentMoniker": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmCarregandoFotoBD.cs",
-              "RelativeDocumentMoniker": "GPSFrancisco\\frmCarregandoFotoBD.cs",
-              "ToolTip": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmCarregandoFotoBD.cs",
-              "RelativeToolTip": "GPSFrancisco\\frmCarregandoFotoBD.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAADwv1QAAAAfAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "frmRecuperarImagem.cs",
+              "DocumentMoniker": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmRecuperarImagem.cs",
+              "RelativeDocumentMoniker": "GPSFrancisco\\frmRecuperarImagem.cs",
+              "ToolTip": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmRecuperarImagem.cs",
+              "RelativeToolTip": "GPSFrancisco\\frmRecuperarImagem.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAowD8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-13T12:48:21.475Z",
+              "WhenOpened": "2025-06-17T12:09:55.174Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
+              "Title": "frmRecuperarImagem.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmRecuperarImagem.cs",
+              "RelativeDocumentMoniker": "GPSFrancisco\\frmRecuperarImagem.cs",
+              "ToolTip": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmRecuperarImagem.cs [Design]",
+              "RelativeToolTip": "GPSFrancisco\\frmRecuperarImagem.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T12:02:45.095Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "frmCarregandoFotoBD.cs [Design]",
               "DocumentMoniker": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmCarregandoFotoBD.cs",
               "RelativeDocumentMoniker": "GPSFrancisco\\frmCarregandoFotoBD.cs",
@@ -87,7 +107,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
+              "Title": "frmCarregandoFotoBD.cs",
+              "DocumentMoniker": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmCarregandoFotoBD.cs",
+              "RelativeDocumentMoniker": "GPSFrancisco\\frmCarregandoFotoBD.cs",
+              "ToolTip": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmCarregandoFotoBD.cs",
+              "RelativeToolTip": "GPSFrancisco\\frmCarregandoFotoBD.cs",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAswIsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-13T12:48:21.475Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "frmCalendario.cs",
               "DocumentMoniker": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmCalendario.cs",
               "RelativeDocumentMoniker": "GPSFrancisco\\frmCalendario.cs",
@@ -100,7 +133,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\Program.cs",
+              "RelativeDocumentMoniker": "GPSFrancisco\\Program.cs",
+              "ToolTip": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\Program.cs",
+              "RelativeToolTip": "GPSFrancisco\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T12:07:08.373Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "frmGerenciarVoluntarios.cs [Design]",
               "DocumentMoniker": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmGerenciarVoluntarios.cs",
               "RelativeDocumentMoniker": "GPSFrancisco\\frmGerenciarVoluntarios.cs",
@@ -112,7 +158,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "frmGerenciarVoluntarios.cs",
               "DocumentMoniker": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmGerenciarVoluntarios.cs",
               "RelativeDocumentMoniker": "GPSFrancisco\\frmGerenciarVoluntarios.cs",
@@ -125,7 +171,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "frmGerenciarUsuarios.cs",
               "DocumentMoniker": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmGerenciarUsuarios.cs",
               "RelativeDocumentMoniker": "GPSFrancisco\\frmGerenciarUsuarios.cs",
@@ -133,25 +179,11 @@
               "RelativeToolTip": "GPSFrancisco\\frmGerenciarUsuarios.cs",
               "ViewState": "AgIAAHkAAAAAAAAAAAAUwIEAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-04T12:21:15.155Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-04T12:21:15.155Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\Program.cs",
-              "RelativeDocumentMoniker": "GPSFrancisco\\Program.cs",
-              "ToolTip": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\Program.cs",
-              "RelativeToolTip": "GPSFrancisco\\Program.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAxwBQAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T12:07:08.373Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "frmPesquisarVoluntarios.cs",
               "DocumentMoniker": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmPesquisarVoluntarios.cs",
               "RelativeDocumentMoniker": "GPSFrancisco\\frmPesquisarVoluntarios.cs",
@@ -163,7 +195,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "frmCalendario.cs [Design]",
               "DocumentMoniker": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmCalendario.cs",
               "RelativeDocumentMoniker": "GPSFrancisco\\frmCalendario.cs",
@@ -175,7 +207,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "frmAtribuicoes.cs [Design]",
               "DocumentMoniker": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmAtribuicoes.cs",
               "RelativeDocumentMoniker": "GPSFrancisco\\frmAtribuicoes.cs",
@@ -186,19 +218,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "frmGerenciarUsuarios.cs [Design]",
               "DocumentMoniker": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmGerenciarUsuarios.cs",
               "RelativeDocumentMoniker": "GPSFrancisco\\frmGerenciarUsuarios.cs",
               "ToolTip": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmGerenciarUsuarios.cs [Design]",
               "RelativeToolTip": "GPSFrancisco\\frmGerenciarUsuarios.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-04T12:21:12.648Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-06-04T12:21:12.648Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "frmPesquisarVoluntarios.cs [Design]",
               "DocumentMoniker": "C:\\Users\\giovanne.shenrique\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmPesquisarVoluntarios.cs",
               "RelativeDocumentMoniker": "GPSFrancisco\\frmPesquisarVoluntarios.cs",

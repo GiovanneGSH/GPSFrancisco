@@ -17,7 +17,34 @@ namespace GPSFrancisco
         public frmCarregandoFotoBD()
         {
             InitializeComponent();
+            desabilitaCampos();
+            
         }
+
+        public void desabilitaCampos()
+        {
+            txtNome.Enabled = false;
+            txtBuscaFotos.Enabled = false;
+            btnSalvarFotos.Enabled = false;
+            btnLimpar.Enabled = false;
+        }
+
+        public void habilitarCampos()
+        {
+            txtNome.Enabled = true;
+            txtBuscaFotos.Enabled = true;
+            btnSalvarFotos.Enabled = true;
+            btnLimpar.Enabled = true;
+        }
+
+        public void limparCamposSalvar()
+        {
+            txtNome.Clear();
+            txtBuscaFotos.Clear();
+            pctFotos.Image = null;
+        }
+
+
 
         private void btnInserirFotos_Click(object sender, EventArgs e)
         {
@@ -29,6 +56,9 @@ namespace GPSFrancisco
                 string foto = dialog.FileName.ToString();
                 txtBuscaFotos.Text = foto;
                 pctFotos.ImageLocation = foto;
+                habilitarCampos();
+                txtNome.Focus();
+                btnInserirFotos.Enabled = false ;
             }
         }
 
@@ -63,6 +93,10 @@ namespace GPSFrancisco
                 int resp = comm.ExecuteNonQuery();
 
                 MessageBox.Show("Foto salva no banco de dados!" + resp);
+
+                desabilitaCampos();
+                limparCamposSalvar();
+                btnInserirFotos.Enabled = true;
                 
 
                 Conexao.fecharConexao();
@@ -84,5 +118,27 @@ namespace GPSFrancisco
         {
             Application.Exit();
         }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            frmRecuperarImagem abrir = new frmRecuperarImagem();
+            abrir.Show();
+            this.Hide();
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            pctFotos.Image = null;
+            txtBuscaFotos.Clear();
+            txtNome.Clear();
+            btnInserirFotos.Enabled = true;
+            btnLimpar.Enabled = false;
+            txtNome.Enabled = false;
+            btnSalvarFotos.Enabled = false;
+        }
+
+
+
+
     }
 }

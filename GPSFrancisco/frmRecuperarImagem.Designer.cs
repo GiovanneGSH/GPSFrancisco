@@ -32,12 +32,12 @@
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
-            this.pcbFotos = new System.Windows.Forms.PictureBox();
             this.dgvListaImagens = new System.Windows.Forms.DataGridView();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbFotos)).BeginInit();
+            this.pctFotos = new System.Windows.Forms.PictureBox();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaImagens)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctFotos)).BeginInit();
             this.SuspendLayout();
             // 
             // btnVoltar
@@ -49,6 +49,7 @@
             this.btnVoltar.TabIndex = 0;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // btnSalvar
             // 
@@ -70,54 +71,72 @@
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             // 
-            // pcbFotos
-            // 
-            this.pcbFotos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pcbFotos.Location = new System.Drawing.Point(12, 12);
-            this.pcbFotos.Name = "pcbFotos";
-            this.pcbFotos.Size = new System.Drawing.Size(342, 270);
-            this.pcbFotos.TabIndex = 4;
-            this.pcbFotos.TabStop = false;
-            // 
             // dgvListaImagens
             // 
-            this.dgvListaImagens.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvListaImagens.AllowUserToAddRows = false;
+            this.dgvListaImagens.AllowUserToDeleteRows = false;
+            this.dgvListaImagens.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvListaImagens.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvListaImagens.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListaImagens.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListaImagens.ColumnHeadersVisible = false;
             this.dgvListaImagens.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Nome,
-            this.Codigo});
-            this.dgvListaImagens.GridColor = System.Drawing.SystemColors.Control;
+            this.nome,
+            this.codigo});
             this.dgvListaImagens.Location = new System.Drawing.Point(12, 288);
+            this.dgvListaImagens.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvListaImagens.MultiSelect = false;
             this.dgvListaImagens.Name = "dgvListaImagens";
+            this.dgvListaImagens.ReadOnly = true;
+            this.dgvListaImagens.RowHeadersVisible = false;
+            this.dgvListaImagens.RowHeadersWidth = 62;
+            this.dgvListaImagens.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListaImagens.Size = new System.Drawing.Size(242, 150);
             this.dgvListaImagens.TabIndex = 5;
+            this.dgvListaImagens.SelectionChanged += new System.EventHandler(this.dgvListaImagens_SelectionChanged);
             // 
-            // Nome
+            // pctFotos
             // 
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
+            this.pctFotos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pctFotos.Location = new System.Drawing.Point(12, 12);
+            this.pctFotos.Name = "pctFotos";
+            this.pctFotos.Size = new System.Drawing.Size(338, 271);
+            this.pctFotos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pctFotos.TabIndex = 6;
+            this.pctFotos.TabStop = false;
             // 
-            // Codigo
+            // nome
             // 
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.Name = "Codigo";
+            this.nome.HeaderText = "Nome";
+            this.nome.MinimumWidth = 8;
+            this.nome.Name = "nome";
+            this.nome.ReadOnly = true;
+            // 
+            // codigo
+            // 
+            this.codigo.HeaderText = "Codigo";
+            this.codigo.MinimumWidth = 8;
+            this.codigo.Name = "codigo";
+            this.codigo.ReadOnly = true;
+            this.codigo.Visible = false;
             // 
             // frmRecuperarImagem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(362, 450);
+            this.Controls.Add(this.pctFotos);
             this.Controls.Add(this.dgvListaImagens);
-            this.Controls.Add(this.pcbFotos);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.btnVoltar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmRecuperarImagem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recuperar Imagem";
-            ((System.ComponentModel.ISupportInitialize)(this.pcbFotos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaImagens)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctFotos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -127,9 +146,9 @@
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnExcluir;
-        private System.Windows.Forms.PictureBox pcbFotos;
         private System.Windows.Forms.DataGridView dgvListaImagens;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.PictureBox pctFotos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
     }
 }
