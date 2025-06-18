@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 // importando a API de buscar CEP
 using MosaicoSolutions.ViaCep;
+using System.IO;
 
 namespace GPSFrancisco
 {
@@ -32,11 +33,11 @@ namespace GPSFrancisco
 
             desabilitarCamposNovo();
 
-            
+
         }
 
         //Criando método construtor com parametros
-        public frmGerenciarVoluntarios (string nome)
+        public frmGerenciarVoluntarios(string nome)
         {
             InitializeComponent();
 
@@ -73,6 +74,7 @@ namespace GPSFrancisco
             btnCadastrar.Enabled = false;
             btnExcluir.Enabled = false;
             btnLimpar.Enabled = false;
+            btnCarregar.Enabled = false;
             txtNome.Focus();
         }
 
@@ -95,6 +97,7 @@ namespace GPSFrancisco
             btnCadastrar.Enabled = true;
             btnExcluir.Enabled = true;
             btnLimpar.Enabled = true;
+            btnCarregar.Enabled = true;
             txtNome.Focus();
         }
 
@@ -119,6 +122,7 @@ namespace GPSFrancisco
             btnLimpar.Enabled = true;
             btnNovo.Enabled = false;
             btnAlterar.Enabled = true;
+            btnCarregar.Enabled = true;
             txtNome.Focus();
         }
 
@@ -143,9 +147,9 @@ namespace GPSFrancisco
             btnAlterar.Enabled = false;
             btnLimpar.Enabled = true;
             txtNome.Focus();
-        }            
+        }
 
-            private void frmGerenciarVoluntarios_Load(object sender, EventArgs e)
+        private void frmGerenciarVoluntarios_Load(object sender, EventArgs e)
         {
             IntPtr hMenu = GetSystemMenu(this.Handle, false);
             int MenuCount = GetMenuItemCount(hMenu) - 1;
@@ -160,33 +164,35 @@ namespace GPSFrancisco
         }
 
 
-// buscando atribuições para carregar na combo
+        // buscando atribuições para carregar na combo
 
         public void carregaAtribuicoes()
         {
             MySqlCommand comm = new MySqlCommand();
             comm.CommandText = "select * from tbAtribuicoes order by nome;";
-            comm.CommandType = CommandType.Text;            
+            comm.CommandType = CommandType.Text;
 
             comm.Connection = Conexao.obterConexao();
 
             MySqlDataReader DR;
 
-            DR = comm.ExecuteReader();          
-           
+            DR = comm.ExecuteReader();
+
             while (DR.Read())
             {
                 cbbAtribuicoes.Items.Add(DR.GetString(1));
             }
 
-            Conexao.fecharConexao();                            
-        }    
-         
+            Conexao.fecharConexao();
+        }
 
-        private int cadastrarVoluntarios(string nome, string email, string telCel, string endereco, string numero, string cep, string bairro, string cidade, string estado, DateTime data, DateTime hora, int status)
+        
+
+
+        private int cadastrarVoluntarios(string nome, string email, string telCel, string endereco, string numero, string cep, string bairro, string cidade, string estado, DateTime data, DateTime hora, int status, long foto)
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "insert into tbVoluntarios(nome,email,telCel,endereco,numero,cep,bairro,cidade,estado,codAtr,data,hora,status)values(@nome,@email,@telCel,@endereco,@numero,@cep,@bairro,@cidade,@estado,@codAtr,@data,@hora,@status);";
+            comm.CommandText = "insert into tbVoluntarios(nome,email,telCel,endereco,numero,cep,bairro,cidade,estado,codAtr,data,hora,status,foto)values(@nome,@email,@telCel,@endereco,@numero,@cep,@bairro,@cidade,@estado,@codAtr,@data,@hora,@status,@foto);";
             comm.CommandType = CommandType.Text;
 
             comm.Parameters.Clear();
@@ -201,7 +207,8 @@ namespace GPSFrancisco
             comm.Parameters.Add("@estado", MySqlDbType.VarChar, 2).Value = estado;
             comm.Parameters.Add("@codAtr", MySqlDbType.Int32).Value = codigoAtribuicao;
             comm.Parameters.Add("@data", MySqlDbType.DateTime).Value = data;
-            
+
+
             //--------Converte o dtp.Hora para o formato hora--------
 
             //DateTime horaSelecionada = dtpHora.Value;
@@ -213,9 +220,11 @@ namespace GPSFrancisco
             comm.Parameters.Add("@hora", MySqlDbType.DateTime).Value = hora;
             comm.Parameters.Add("@status", MySqlDbType.Bit, 100).Value = status;
 
+            comm.Parameters.Add("@foto", MySqlDbType.LongBlob).Value = foto;
 
-            comm.Connection = Conexao.obterConexao();          
-                      
+
+            comm.Connection = Conexao.obterConexao();
+
 
             int resp = comm.ExecuteNonQuery();
 
@@ -235,9 +244,9 @@ namespace GPSFrancisco
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Error,
                 MessageBoxDefaultButton.Button1);
-                
-                txtNome.Focus();                
-               
+
+                txtNome.Focus();
+
             }
             else if (mskTelefone.Text.Length < 13)
             {
@@ -247,7 +256,7 @@ namespace GPSFrancisco
                     MessageBoxDefaultButton.Button1);
 
                 mskTelefone.Focus();
-                
+
             }
             else if (mskCep.Text.Length < 9)
             {
@@ -258,16 +267,22 @@ namespace GPSFrancisco
 
                 mskCep.Focus();
             }
+            else if (pcbFoto.Image.Equals(null)) //Organizar estrutura de decisão
+            {
+                MessageBox.Show("Favor carregar uma foto", "Mensagem do sistema",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning,
+                    MessageBoxDefaultButton.Button1);                
+            }
             else
             {
-
-                cadastrarVoluntarios(txtNome.Text, txtEmail.Text, mskTelefone.Text, txtEndereco.Text, txtNumero.Text, mskCep.Text, txtBairro.Text, txtCidade.Text, cbbEstado.Text, dtpData.Value, dtpHora.Value, ckbStatus.Checked.GetHashCode());
-
+                cadastrarVoluntarios(txtNome.Text, txtEmail.Text, mskTelefone.Text, txtEndereco.Text, txtNumero.Text, mskCep.Text, txtBairro.Text, txtCidade.Text, cbbEstado.Text, dtpData.Value, dtpHora.Value, ckbStatus.Checked.GetHashCode(), salvarFotos().LongLength);
                 MessageBox.Show("Cadastrado com sucesso!", "Mensagem do sistema",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information,
                     MessageBoxDefaultButton.Button1);
                 limparCampos();
+                pcbFoto.Image = null;
                 desabilitarCamposNovo();
             }
 
@@ -293,8 +308,8 @@ namespace GPSFrancisco
 
             DR.Read();
 
-            int codAtr = DR.GetInt32(0);         
-      
+            int codAtr = DR.GetInt32(0);
+
             Conexao.fecharConexao();
 
             return codAtr;
@@ -304,7 +319,7 @@ namespace GPSFrancisco
 
         private void cbbAtribuicoes_SelectedIndexChanged(object sender, EventArgs e)
         {
-          codigoAtribuicao = buscaCodigoAtribuicoes(cbbAtribuicoes.SelectedItem.ToString());
+            codigoAtribuicao = buscaCodigoAtribuicoes(cbbAtribuicoes.SelectedItem.ToString());
             txtCodigo.Text = codigoAtribuicao.ToString();
         }
 
@@ -324,15 +339,15 @@ namespace GPSFrancisco
         //criando o método busca cep
         public void buscaCEP(string cep)
         {
-            
-                var viaCEPService = ViaCepService.Default();
+
+            var viaCEPService = ViaCepService.Default();
             try
             {
                 var endereco = viaCEPService.ObterEndereco(cep);
 
                 txtEndereco.Text = endereco.Logradouro.ToString();
                 txtCidade.Text = endereco.Localidade.ToString();
-                txtBairro.Text = endereco.Bairro.ToString();                
+                txtBairro.Text = endereco.Bairro.ToString();
                 cbbEstado.Text = endereco.UF.ToString();
             }
 
@@ -346,7 +361,7 @@ namespace GPSFrancisco
                 mskCep.Text = "";
                 mskCep.Focus();
             }
-            
+
         }
 
         public void carregaVoluntariosPorNome(string nome)
@@ -387,11 +402,11 @@ namespace GPSFrancisco
             mskTelefone.Text = DR.GetString(3);
             txtEndereco.Text = DR.GetString(4);
             txtNumero.Text = DR.GetString(5);
-            mskCep.Text= DR.GetString(6);
+            mskCep.Text = DR.GetString(6);
             txtBairro.Text = DR.GetString(7);
             txtCidade.Text = DR.GetString(8);
-            cbbEstado.Text = DR.GetString(9);          
-                       
+            cbbEstado.Text = DR.GetString(9);
+
             //cbbAtribuicoes.Text = Convert.ToString(DR.GetInt32(10));
 
             //cbbAtribuicoes.Text = Convert.ToString(DR.GetInt32(10));
@@ -400,13 +415,11 @@ namespace GPSFrancisco
 
             dtpData.Value = DR.GetDateTime(11);
             dtpHora.Value = DR.GetDateTime(12);
-            ckbStatus.Checked = status;          
+            ckbStatus.Checked = status;
 
             Conexao.fecharConexao();
 
         }
-
-
 
         private void mskCep_KeyDown(object sender, KeyEventArgs e)
         {
@@ -419,20 +432,47 @@ namespace GPSFrancisco
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            frmPesquisarVoluntarios abrir = new frmPesquisarVoluntarios();            
+            frmPesquisarVoluntarios abrir = new frmPesquisarVoluntarios();
             abrir.Show();
             this.Hide();
         }
 
+        string enderecoFoto;
+
         private void btnCarregar_Click(object sender, EventArgs e)
         {
-            //pcbFoto.Image = Image.FromFile("");
+            ////pcbFoto.Image = Image.FromFile("");
 
-            ofdCarregar.ShowDialog();
-            string path = ofdCarregar.FileName;
-            pcbFoto.Image = Image.FromFile(path);
+            //ofdCarregar.ShowDialog();
+            //string path = ofdCarregar.FileName;
+            //pcbFoto.Image = Image.FromFile(path);
+
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "JPG Files(*.jpg)|*jpg|PNG Files(*.png)|*png|AllFiles(*.*)|*.*";
+
+            if (dialog.ShowDialog().Equals(DialogResult.OK))
+            {
+                string foto = dialog.FileName.ToString();
+                enderecoFoto = foto;
+                pcbFoto.ImageLocation = foto;
+                txtNome.Focus();
+            }
+        }
+
+        public byte[] salvarFotos()
+        {
+            byte[] imagem_byte = null;
+
+            FileStream fs = new FileStream(enderecoFoto, FileMode.Open, FileAccess.Read);
+
+            BinaryReader br = new BinaryReader(fs);
+
+            imagem_byte = br.ReadBytes((int)fs.Length);
+
+
+            return imagem_byte;
+
         }
     }
 
-   
 }

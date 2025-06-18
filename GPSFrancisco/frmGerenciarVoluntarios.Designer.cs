@@ -38,6 +38,7 @@
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             this.gpbInformacoesUsuarios = new System.Windows.Forms.GroupBox();
+            this.btnCarregar = new System.Windows.Forms.Button();
             this.txtComplemento = new System.Windows.Forms.TextBox();
             this.lblComplemento = new System.Windows.Forms.Label();
             this.pcbFoto = new System.Windows.Forms.PictureBox();
@@ -70,7 +71,6 @@
             this.lblData = new System.Windows.Forms.Label();
             this.lblAtribuições = new System.Windows.Forms.Label();
             this.cbbAtribuicoes = new System.Windows.Forms.ComboBox();
-            this.btnCarregar = new System.Windows.Forms.Button();
             this.ofdCarregar = new System.Windows.Forms.OpenFileDialog();
             this.pnlCrud.SuspendLayout();
             this.gpbInformacoesUsuarios.SuspendLayout();
@@ -99,7 +99,7 @@
             this.btnVoltar.Location = new System.Drawing.Point(601, 133);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(125, 48);
-            this.btnVoltar.TabIndex = 21;
+            this.btnVoltar.TabIndex = 22;
             this.btnVoltar.Text = "&Voltar";
             this.btnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnVoltar.UseVisualStyleBackColor = true;
@@ -112,7 +112,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(541, 26);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(125, 48);
-            this.btnExcluir.TabIndex = 18;
+            this.btnExcluir.TabIndex = 19;
             this.btnExcluir.Text = "&Excluir";
             this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExcluir.UseVisualStyleBackColor = true;
@@ -124,7 +124,7 @@
             this.btnLimpar.Location = new System.Drawing.Point(391, 102);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(125, 48);
-            this.btnLimpar.TabIndex = 20;
+            this.btnLimpar.TabIndex = 21;
             this.btnLimpar.Text = "&Limpar";
             this.btnLimpar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLimpar.UseVisualStyleBackColor = true;
@@ -137,7 +137,7 @@
             this.btnAlterar.Location = new System.Drawing.Point(391, 26);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(125, 48);
-            this.btnAlterar.TabIndex = 17;
+            this.btnAlterar.TabIndex = 18;
             this.btnAlterar.Text = "&Alterar";
             this.btnAlterar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAlterar.UseVisualStyleBackColor = true;
@@ -149,7 +149,7 @@
             this.btnCadastrar.Location = new System.Drawing.Point(241, 26);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(125, 48);
-            this.btnCadastrar.TabIndex = 16;
+            this.btnCadastrar.TabIndex = 17;
             this.btnCadastrar.Text = "&Cadastrar";
             this.btnCadastrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCadastrar.UseVisualStyleBackColor = true;
@@ -162,7 +162,7 @@
             this.btnPesquisar.Location = new System.Drawing.Point(241, 102);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(125, 48);
-            this.btnPesquisar.TabIndex = 19;
+            this.btnPesquisar.TabIndex = 20;
             this.btnPesquisar.Text = "&Pesquisar";
             this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPesquisar.UseVisualStyleBackColor = true;
@@ -175,7 +175,7 @@
             this.btnNovo.Location = new System.Drawing.Point(91, 26);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(125, 48);
-            this.btnNovo.TabIndex = 15;
+            this.btnNovo.TabIndex = 16;
             this.btnNovo.Text = "&Novo";
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;
@@ -214,6 +214,16 @@
             this.gpbInformacoesUsuarios.TabIndex = 7;
             this.gpbInformacoesUsuarios.TabStop = false;
             this.gpbInformacoesUsuarios.Text = "Informações do Voluntário";
+            // 
+            // btnCarregar
+            // 
+            this.btnCarregar.Location = new System.Drawing.Point(484, 24);
+            this.btnCarregar.Name = "btnCarregar";
+            this.btnCarregar.Size = new System.Drawing.Size(96, 34);
+            this.btnCarregar.TabIndex = 15;
+            this.btnCarregar.Text = "Carregar";
+            this.btnCarregar.UseVisualStyleBackColor = true;
+            this.btnCarregar.Click += new System.EventHandler(this.btnCarregar_Click);
             // 
             // txtComplemento
             // 
@@ -508,16 +518,6 @@
             this.cbbAtribuicoes.Size = new System.Drawing.Size(346, 28);
             this.cbbAtribuicoes.TabIndex = 11;
             this.cbbAtribuicoes.SelectedIndexChanged += new System.EventHandler(this.cbbAtribuicoes_SelectedIndexChanged);
-            // 
-            // btnCarregar
-            // 
-            this.btnCarregar.Location = new System.Drawing.Point(484, 24);
-            this.btnCarregar.Name = "btnCarregar";
-            this.btnCarregar.Size = new System.Drawing.Size(96, 34);
-            this.btnCarregar.TabIndex = 21;
-            this.btnCarregar.Text = "Carregar";
-            this.btnCarregar.UseVisualStyleBackColor = true;
-            this.btnCarregar.Click += new System.EventHandler(this.btnCarregar_Click);
             // 
             // ofdCarregar
             // 
