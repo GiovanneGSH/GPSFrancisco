@@ -12,6 +12,8 @@ using System.Windows.Forms;
 // importando a API de buscar CEP
 using MosaicoSolutions.ViaCep;
 using System.IO;
+using System.Globalization;
+using MySqlX.XDevAPI.Common;
 
 namespace GPSFrancisco
 {
@@ -189,10 +191,10 @@ namespace GPSFrancisco
         
 
 
-        private int cadastrarVoluntarios(string nome, string email, string telCel, string endereco, string numero, string cep, string bairro, string cidade, string estado, DateTime data, DateTime hora, int status, long foto)
+        private int cadastrarVoluntarios(string nome, string email, string telCel, string endereco, string numero, string cep, string complemento, string bairro, string cidade, string estado, DateTime data, DateTime hora, int status, byte[] foto)
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "insert into tbVoluntarios(nome,email,telCel,endereco,numero,cep,bairro,cidade,estado,codAtr,data,hora,status,foto)values(@nome,@email,@telCel,@endereco,@numero,@cep,@bairro,@cidade,@estado,@codAtr,@data,@hora,@status,@foto);";
+            comm.CommandText = "INSERT INTO tbVoluntarios(nome,email,telCel,endereco,numero,cep,complemento,bairro,cidade,estado,codAtr,data,hora,status,foto)VALUES(@nome,@email,@telCel,@endereco,@numero,@cep,@complemento,@bairro,@cidade,@estado,@codAtr,@data,@hora,@status,@foto);";
             comm.CommandType = CommandType.Text;
 
             comm.Parameters.Clear();
@@ -202,6 +204,7 @@ namespace GPSFrancisco
             comm.Parameters.Add("@endereco", MySqlDbType.VarChar, 100).Value = endereco;
             comm.Parameters.Add("@numero", MySqlDbType.VarChar, 5).Value = numero;
             comm.Parameters.Add("@cep", MySqlDbType.VarChar, 9).Value = cep;
+            comm.Parameters.Add("@complemento", MySqlDbType.VarChar, 100).Value = complemento;
             comm.Parameters.Add("@bairro", MySqlDbType.VarChar, 100).Value = bairro;
             comm.Parameters.Add("@cidade", MySqlDbType.VarChar, 100).Value = cidade;
             comm.Parameters.Add("@estado", MySqlDbType.VarChar, 2).Value = estado;
@@ -276,7 +279,7 @@ namespace GPSFrancisco
             }
             else
             {
-                cadastrarVoluntarios(txtNome.Text, txtEmail.Text, mskTelefone.Text, txtEndereco.Text, txtNumero.Text, mskCep.Text, txtBairro.Text, txtCidade.Text, cbbEstado.Text, dtpData.Value, dtpHora.Value, ckbStatus.Checked.GetHashCode(), salvarFotos().LongLength);
+                cadastrarVoluntarios(txtNome.Text, txtEmail.Text, mskTelefone.Text, txtEndereco.Text, txtNumero.Text, mskCep.Text, txtComplemento.Text, txtBairro.Text, txtCidade.Text, cbbEstado.Text, dtpData.Value, dtpHora.Value, ckbStatus.Checked.GetHashCode(), salvarFotos());
                 MessageBox.Show("Cadastrado com sucesso!", "Mensagem do sistema",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information,
@@ -320,7 +323,7 @@ namespace GPSFrancisco
         private void cbbAtribuicoes_SelectedIndexChanged(object sender, EventArgs e)
         {
             codigoAtribuicao = buscaCodigoAtribuicoes(cbbAtribuicoes.SelectedItem.ToString());
-            txtCodigo.Text = codigoAtribuicao.ToString();
+            
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -349,6 +352,7 @@ namespace GPSFrancisco
                 txtCidade.Text = endereco.Localidade.ToString();
                 txtBairro.Text = endereco.Bairro.ToString();
                 cbbEstado.Text = endereco.UF.ToString();
+                txtComplemento.Text = endereco.Complemento.ToString();
             }
 
             catch (Exception)
@@ -369,7 +373,7 @@ namespace GPSFrancisco
             bool status = false;
 
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "select * from tbVoluntarios where nome = @nome;";
+            comm.CommandText = "SELECT * FROM tbVoluntarios AS vol INNER JOIN tbAtribuicoes AS atr ON vol.codAtr = atr.codAtr WHERE vol.nome = @nome;";
             comm.CommandType = CommandType.Text;
 
             comm.Parameters.Clear();
@@ -385,11 +389,11 @@ namespace GPSFrancisco
 
             //Checando o campo status
 
-            if (DR.GetInt32(13).Equals(1))
+            if (DR.GetInt32(14).Equals(1))
             {
                 status = true;
             }
-            if (DR.GetInt32(13).Equals(0))
+            if (DR.GetInt32(14).Equals(0))
             {
                 status = false;
             }
@@ -403,9 +407,16 @@ namespace GPSFrancisco
             txtEndereco.Text = DR.GetString(4);
             txtNumero.Text = DR.GetString(5);
             mskCep.Text = DR.GetString(6);
-            txtBairro.Text = DR.GetString(7);
-            txtCidade.Text = DR.GetString(8);
-            cbbEstado.Text = DR.GetString(9);
+            try
+            {
+                txtComplemento.Text = DR.GetString(7);
+            }
+            catch (Exception) {
+                txtComplemento.Text = "";
+            }
+            txtBairro.Text = DR.GetString(8);
+            txtCidade.Text = DR.GetString(9);
+            cbbEstado.Text = DR.GetString(10);
 
             //cbbAtribuicoes.Text = Convert.ToString(DR.GetInt32(10));
 
@@ -413,13 +424,71 @@ namespace GPSFrancisco
 
             //cbbAtribuicoes.SelectedItem = (DR.GetInt32(10));
 
-            dtpData.Value = DR.GetDateTime(11);
-            dtpHora.Value = DR.GetDateTime(12);
+            dtpData.Value = DR.GetDateTime(12);
+            dtpHora.Value = DR.GetDateTime(13);
             ckbStatus.Checked = status;
+
+
+            cbbAtribuicoes.Text = DR.GetString(17);
+
+
+            //byte[] imagem = (byte[])DR.GetValue(15);
+
+            //MemoryStream ms = new MemoryStream(imagem);
+
+            //pcbFoto.Image = Image.FromFile(ms.ToString());
+
+
+            byte[] image = (byte[])DR.GetValue(15);
+
+            MemoryStream ms = new MemoryStream(image);
+
+            pcbFoto.Image = Image.FromStream(ms);
 
             Conexao.fecharConexao();
 
         }
+
+        private int alterarVoluntarios(string nome)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "UPDATE tbVoluntarios;";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+
+            comm.Parameters.Add("@nome",MySqlDbType.VarChar,100).Value = nome;
+
+            comm.Connection = Conexao.obterConexao();
+
+            int resp = comm.ExecuteNonQuery();
+
+            Conexao.fecharConexao();
+
+            return resp;
+
+        }
+
+
+        private int excluirVoluntarios(int codVol)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "DELETE FROM tbVoluntarios WHERE codVol = @codVol;";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+
+            comm.Parameters.Add("@codVol",MySqlDbType.Int32).Value = codVol;
+
+            comm.Connection = Conexao.obterConexao();
+
+            int resp = comm.ExecuteNonQuery();
+
+            Conexao.fecharConexao();
+
+            return resp;
+        }
+
 
         private void mskCep_KeyDown(object sender, KeyEventArgs e)
         {
@@ -471,6 +540,59 @@ namespace GPSFrancisco
 
 
             return imagem_byte;
+
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Deseja excluir?", "Mensagem do Sistema",
+                MessageBoxButtons.YesNoCancel,MessageBoxIcon.Question,MessageBoxDefaultButton.Button2);
+
+            if (result.Equals(DialogResult.Yes))
+            {
+               int resp = excluirVoluntarios(Convert.ToInt32(txtCodigo.Text));
+
+                if (resp.Equals(1))
+                {
+                    MessageBox.Show("Excluido com Sucesso", "Mensagem do Sistema",
+                MessageBoxButtons.OK,MessageBoxIcon.Information,MessageBoxDefaultButton.Button1);
+                    limparCampos();
+                    desabilitarCamposNovo();
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao excluir", "Mensagem do Sistema",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                }
+            }
+            else
+            {
+                limparCampos();
+                desabilitarCamposNovo();
+                btnNovo.Enabled = true;
+
+            }
+            
+          
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+           int resp = alterarVoluntarios(txtNome.Text);
+
+            
+                if (resp.Equals(1))
+                {
+                    MessageBox.Show("Alterado com Sucesso", "Mensagem do Sistema",
+                MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);                    
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao alterar", "Mensagem do Sistema",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                }
+            
+            
 
         }
     }
