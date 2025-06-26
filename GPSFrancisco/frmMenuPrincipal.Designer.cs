@@ -33,6 +33,7 @@
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnAtribuicoes = new System.Windows.Forms.Button();
+            this.btnProdutos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVoluntarios
@@ -84,7 +85,7 @@
             this.btnAtribuicoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAtribuicoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAtribuicoes.Image = ((System.Drawing.Image)(resources.GetObject("btnAtribuicoes.Image")));
-            this.btnAtribuicoes.Location = new System.Drawing.Point(438, 12);
+            this.btnAtribuicoes.Location = new System.Drawing.Point(12, 221);
             this.btnAtribuicoes.Name = "btnAtribuicoes";
             this.btnAtribuicoes.Size = new System.Drawing.Size(193, 203);
             this.btnAtribuicoes.TabIndex = 3;
@@ -94,11 +95,27 @@
             this.btnAtribuicoes.UseVisualStyleBackColor = true;
             this.btnAtribuicoes.Click += new System.EventHandler(this.btnAtribuicoes_Click);
             // 
+            // btnProdutos
+            // 
+            this.btnProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProdutos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProdutos.Image = ((System.Drawing.Image)(resources.GetObject("btnProdutos.Image")));
+            this.btnProdutos.Location = new System.Drawing.Point(225, 221);
+            this.btnProdutos.Name = "btnProdutos";
+            this.btnProdutos.Size = new System.Drawing.Size(193, 203);
+            this.btnProdutos.TabIndex = 4;
+            this.btnProdutos.Text = "&Produtos";
+            this.btnProdutos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnProdutos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnProdutos.UseVisualStyleBackColor = true;
+            this.btnProdutos.Click += new System.EventHandler(this.btnProdutos_Click);
+            // 
             // frmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(428, 561);
+            this.Controls.Add(this.btnProdutos);
             this.Controls.Add(this.btnAtribuicoes);
             this.Controls.Add(this.btnUsuarios);
             this.Controls.Add(this.btnVoltar);
@@ -120,5 +137,6 @@
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.Button btnAtribuicoes;
+        private System.Windows.Forms.Button btnProdutos;
     }
 }

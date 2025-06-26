@@ -14,6 +14,9 @@ using MosaicoSolutions.ViaCep;
 using System.IO;
 using System.Globalization;
 using MySqlX.XDevAPI.Common;
+using MosaicoSolutions.ViaCep.Modelos;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GPSFrancisco
 {
@@ -153,9 +156,7 @@ namespace GPSFrancisco
 
         private void frmGerenciarVoluntarios_Load(object sender, EventArgs e)
         {
-            IntPtr hMenu = GetSystemMenu(this.Handle, false);
-            int MenuCount = GetMenuItemCount(hMenu) - 1;
-            RemoveMenu(hMenu, MenuCount, MF_BYCOMMAND);
+
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -447,17 +448,33 @@ namespace GPSFrancisco
 
             Conexao.fecharConexao();
 
+            btnCarregar.Text = "Alterar";
+
         }
 
-        private int alterarVoluntarios(string nome)
+        private int alterarVoluntarios(string nome, string email, string telCel, string endereco, string numero, string cep, string complemento, string bairro, string cidade, string estado, DateTime data, DateTime hora, int status, byte[] foto, int codVol)
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "UPDATE tbVoluntarios;";
+            comm.CommandText = "UPDATE tbVoluntarios SET nome=@nome,email=@email,telCel=@telCel,endereco=@endereco,numero=@numero,cep=@cep,complemento=@complemento,bairro=@bairro,cidade=@cidade,estado=@estado,data=@data,hora=@hora,status=@status,foto=@foto WHERE codVol = @codVol;";
             comm.CommandType = CommandType.Text;
-
             comm.Parameters.Clear();
 
-            comm.Parameters.Add("@nome",MySqlDbType.VarChar,100).Value = nome;
+            comm.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = nome;
+            comm.Parameters.Add("@email", MySqlDbType.VarChar, 100).Value = email;
+            comm.Parameters.Add("@telCel", MySqlDbType.VarChar, 15).Value = telCel;
+            comm.Parameters.Add("@endereco", MySqlDbType.VarChar, 100).Value = endereco;
+            comm.Parameters.Add("@numero", MySqlDbType.VarChar, 5).Value = numero;
+            comm.Parameters.Add("@cep", MySqlDbType.VarChar, 9).Value = cep;
+            comm.Parameters.Add("@complemento", MySqlDbType.VarChar, 100).Value = complemento;
+            comm.Parameters.Add("@bairro", MySqlDbType.VarChar, 100).Value = bairro;
+            comm.Parameters.Add("@cidade", MySqlDbType.VarChar, 100).Value = cidade;
+            comm.Parameters.Add("@estado", MySqlDbType.VarChar, 2).Value = estado;
+            comm.Parameters.Add("@data", MySqlDbType.DateTime).Value = data;
+            comm.Parameters.Add("@hora", MySqlDbType.DateTime).Value = hora;
+            comm.Parameters.Add("@status", MySqlDbType.Bit, 100).Value = status;
+            comm.Parameters.Add("@foto", MySqlDbType.LongBlob).Value = foto;
+
+            comm.Parameters.Add("@codVol", MySqlDbType.Int32).Value = codVol; //Parametro de codVoluntarios -> Para localizar no WHERE 'codVol = @codVol'.
 
             comm.Connection = Conexao.obterConexao();
 
@@ -578,7 +595,18 @@ namespace GPSFrancisco
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-           int resp = alterarVoluntarios(txtNome.Text);
+
+
+            //if (ckbStatus.Equals(1))
+            //{
+                
+            //}
+            //else
+            //{
+
+            //}
+
+            int resp = alterarVoluntarios(txtNome.Text, txtEmail.Text, mskTelefone.Text, txtEndereco.Text, txtNumero.Text, mskCep.Text, txtComplemento.Text, txtBairro.Text, txtCidade.Text, cbbEstado.Text, dtpData.Value, dtpHora.Value, ckbStatus.Checked.GetHashCode(), salvarFotos(), Convert.ToInt32(txtCodigo.Text));
 
             
                 if (resp.Equals(1))
@@ -590,10 +618,8 @@ namespace GPSFrancisco
                 {
                     MessageBox.Show("Erro ao alterar", "Mensagem do Sistema",
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                }
-            
-            
-
+                }            
+          
         }
     }
 

@@ -56,3 +56,6 @@ C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\GPSFrancisco\obj\
 C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\GPSFrancisco\obj\Debug\GPSFrancisco.frmCalendario.resources
 C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\GPSFrancisco\obj\Debug\GPSFrancisco.frmCarregandoFotoBD.resources
 C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\GPSFrancisco\obj\Debug\GPSFrancisco.frmRecuperarImagem.resources
+C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\GPSFrancisco\obj\Debug\GPSFrancisco.frmGerenciarProdutos.resources
+C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\GPSFrancisco\obj\Debug\GPSFrancisco.frmUnidades.resources
+C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\GPSFrancisco\obj\Debug\GPSFrancisco.frmPesquisarUnidadesMedida.resources

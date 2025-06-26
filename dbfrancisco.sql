@@ -26,7 +26,7 @@ primary key(codAtr));
 
 --insert into tbAtribuicoes(nome)values(nome);
 
--- select * from tbAtribuicoes order by nome;
+-- select * from tbAtribuicoes order by nome; // ordem alfabética
 
 -- criando a tabela voluntários
 
@@ -54,6 +54,13 @@ codFotos int not null auto_increment,
 nome varchar(100),
 campo_imagem longBlob,
 primary key(codFotos));
+
+
+create table tbUnidades(
+codUnid int not null auto_increment,
+descricao varchar(50),
+unidade char(2),
+primary key(codUnid));
 
 
 
@@ -90,3 +97,15 @@ primary key(codFotos));
 --Inserir imagem no banco de dados
 
 -- insert into tbfotos(nome, campo_imagem)values(@nome,@campo_imagem);
+
+
+-- select func.nome as 'Nome do Funcionario',usu.nome as 'Nome do Usuario' from tbUsuarios as usu inner join tbFuncionarios as func on usu.codfunc = func.codfunc where func.nome like '%i%';
+
+
+-- INNER JOIN
+
+-- SELECT *, atr.nome FROM tbVoluntarios AS vol INNER JOIN tbAtribuicoes AS atr ON vol.codAtr = atr.codAtr WHERE vol.nome = 'nome';
+
+-- DELETE
+
+-- DELETE FROM tbVoluntarios WHERE codVol = @codVol;

@@ -120,8 +120,6 @@ namespace GPSFrancisco
 
         }
 
-
-
         private void rdbCodigoVoluntario_CheckedChanged(object sender, EventArgs e)
         {
             if (rdbCodigoVoluntario.Checked)

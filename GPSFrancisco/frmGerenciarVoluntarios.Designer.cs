@@ -538,7 +538,6 @@
             this.Name = "frmGerenciarVoluntarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GPSFrancisco - Gerenciar Voluntarios";
-            this.Load += new System.EventHandler(this.frmGerenciarVoluntarios_Load);
             this.pnlCrud.ResumeLayout(false);
             this.gpbInformacoesUsuarios.ResumeLayout(false);
             this.gpbInformacoesUsuarios.PerformLayout();
