@@ -11,11 +11,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Runtime.InteropServices;
 
 namespace GPSFrancisco
 {
     public partial class frmUnidades : Form
     {
+        const int MF_BYCOMMAND = 0X400;
+        [DllImport("user32")]
+        static extern int RemoveMenu(IntPtr hMenu, int nPosition, int wFlags);
+        [DllImport("user32")]
+        static extern IntPtr GetSystemMenu(IntPtr hWnd, bool bRevert);
+        [DllImport("user32")]
+        static extern int GetMenuItemCount(IntPtr hWnd);
+
         public frmUnidades()
         {
             InitializeComponent();
@@ -28,6 +37,7 @@ namespace GPSFrancisco
             desabilitarCampos();
             txtDescricao.Text = descricao;
             pesquisarPorNome(txtDescricao.Text);
+            habilitarCamposPesquisar(); //ok
         }
 
         public void desabilitarCampos()
@@ -58,6 +68,23 @@ namespace GPSFrancisco
 
             txtDescricao.Focus();   
         }
+
+        public void habilitarCamposPesquisar() //ok
+        {
+            txtCodigo.Enabled = false;
+            txtDescricao.Enabled = true;
+            txtUnidade.Enabled = true;
+
+            btnNovo.Enabled = false;
+
+            btnCadastrar.Enabled = false;
+            btnExcluir.Enabled = true;
+            btnAlterar.Enabled = true;
+            btnLimpar.Enabled = true;
+
+            txtDescricao.Focus();
+        }
+
         public void limparCampos()
         {
             txtCodigo.Clear();
@@ -130,8 +157,11 @@ namespace GPSFrancisco
         public void pesquisarPorNome(string descricao)
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = $"SELECT * FROM tbUnidades WHERE descricao LIKE '%{descricao}%';";
-            comm.CommandType = CommandType.Text;                  
+            comm.CommandText = "SELECT * FROM tbUnidades WHERE descricao = @descricao ;";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@descricao", MySqlDbType.VarChar, 50).Value = descricao;
 
             comm.Connection = Conexao.obterConexao();
 
@@ -145,6 +175,7 @@ namespace GPSFrancisco
             txtUnidade.Text = Convert.ToString(DR.GetString(2));
 
             Conexao.fecharConexao();
+            habilitarCamposNovo();
 
             
         }
@@ -178,6 +209,7 @@ namespace GPSFrancisco
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information,
                     MessageBoxDefaultButton.Button1);
+                txtDescricao.Focus();
             }
             else
             {
@@ -201,7 +233,7 @@ namespace GPSFrancisco
                     MessageBoxDefaultButton.Button1);
 
                     limparCampos();
-                    txtDescricao.Focus();
+                    
                 }
             }
         }
@@ -218,6 +250,86 @@ namespace GPSFrancisco
             frmPesquisarUnidadesMedida abrir = new frmPesquisarUnidadesMedida();
             abrir.Show();
             this.Hide();
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            int resp = alterarUnidades(txtDescricao.Text, txtUnidade.Text, Convert.ToInt32(txtCodigo.Text));
+
+            if (resp.Equals(1))
+            {
+                MessageBox.Show("Alterado com sucesso!", "Mensagem do sistema",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information,
+                MessageBoxDefaultButton.Button1);
+                desabilitarCampos();
+                limparCampos();
+                btnNovo.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Erro ao Alterar!", "Mensagem do sistema",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error,
+                MessageBoxDefaultButton.Button1);
+
+                limparCampos();
+
+            }
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            limparCampos();
+            txtDescricao.Enabled = false;
+            txtUnidade.Enabled = false;
+            btnNovo.Focus();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Deseja excluir?",
+                "Mensagem do sistema",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2);
+
+            if (dr.Equals(DialogResult.OK))
+            {
+
+                int resp = excluirUnidades(Convert.ToInt32(txtCodigo.Text));
+                if (resp.Equals(1))
+                {
+                    MessageBox.Show("Excluido com sucesso!",
+                "Mensagem do sistema",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information,
+                MessageBoxDefaultButton.Button1);
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao excluir",
+                "Mensagem do sistema",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error,
+                MessageBoxDefaultButton.Button1);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Erro ao excluir",
+                "Mensagem do sistema",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error,
+                MessageBoxDefaultButton.Button1);
+            }
+        }
+
+        private void frmUnidades_Load(object sender, EventArgs e)
+        {
+            IntPtr hMenu = GetSystemMenu(this.Handle, false);
+            int MenuCount = GetMenuItemCount(hMenu) - 1;
+            RemoveMenu(hMenu, MenuCount, MF_BYCOMMAND);
         }
     }
 }

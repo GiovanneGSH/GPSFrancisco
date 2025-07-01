@@ -35,6 +35,15 @@
             this.cbbUnidade = new System.Windows.Forms.ComboBox();
             this.ofdCarregar = new System.Windows.Forms.OpenFileDialog();
             this.gpbInformacoesProdutos = new System.Windows.Forms.GroupBox();
+            this.lblCodigoDeBarras = new System.Windows.Forms.Label();
+            this.pcbCodigoDeBarras = new System.Windows.Forms.PictureBox();
+            this.dtpValidade = new System.Windows.Forms.DateTimePicker();
+            this.lblDataValidade = new System.Windows.Forms.Label();
+            this.dtpHora = new System.Windows.Forms.DateTimePicker();
+            this.dtpDataEntrada = new System.Windows.Forms.DateTimePicker();
+            this.lblHora = new System.Windows.Forms.Label();
+            this.lblDataEntrada = new System.Windows.Forms.Label();
+            this.btnUnidade = new System.Windows.Forms.Button();
             this.lblLote = new System.Windows.Forms.Label();
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.lblDescricao = new System.Windows.Forms.Label();
@@ -51,19 +60,10 @@
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.btnUnidade = new System.Windows.Forms.Button();
-            this.dtpHora = new System.Windows.Forms.DateTimePicker();
-            this.dtpDataEntrada = new System.Windows.Forms.DateTimePicker();
-            this.lblHora = new System.Windows.Forms.Label();
-            this.lblDataEntrada = new System.Windows.Forms.Label();
-            this.dtpValidade = new System.Windows.Forms.DateTimePicker();
-            this.lblDataValidade = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblCodigoDeBarras = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pcbFoto)).BeginInit();
             this.gpbInformacoesProdutos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbCodigoDeBarras)).BeginInit();
             this.pnlCrud.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnInserir
@@ -74,6 +74,7 @@
             this.btnInserir.TabIndex = 15;
             this.btnInserir.Text = "Inserir";
             this.btnInserir.UseVisualStyleBackColor = true;
+            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
             // 
             // pcbFoto
             // 
@@ -101,6 +102,7 @@
             this.cbbUnidade.Name = "cbbUnidade";
             this.cbbUnidade.Size = new System.Drawing.Size(74, 28);
             this.cbbUnidade.TabIndex = 10;
+            this.cbbUnidade.SelectedIndexChanged += new System.EventHandler(this.cbbUnidade_SelectedIndexChanged);
             // 
             // ofdCarregar
             // 
@@ -109,7 +111,7 @@
             // gpbInformacoesProdutos
             // 
             this.gpbInformacoesProdutos.Controls.Add(this.lblCodigoDeBarras);
-            this.gpbInformacoesProdutos.Controls.Add(this.pictureBox1);
+            this.gpbInformacoesProdutos.Controls.Add(this.pcbCodigoDeBarras);
             this.gpbInformacoesProdutos.Controls.Add(this.dtpValidade);
             this.gpbInformacoesProdutos.Controls.Add(this.lblDataValidade);
             this.gpbInformacoesProdutos.Controls.Add(this.dtpHora);
@@ -136,6 +138,88 @@
             this.gpbInformacoesProdutos.TabIndex = 10;
             this.gpbInformacoesProdutos.TabStop = false;
             this.gpbInformacoesProdutos.Text = "Informações do Produto";
+            // 
+            // lblCodigoDeBarras
+            // 
+            this.lblCodigoDeBarras.AutoSize = true;
+            this.lblCodigoDeBarras.Location = new System.Drawing.Point(445, 262);
+            this.lblCodigoDeBarras.Name = "lblCodigoDeBarras";
+            this.lblCodigoDeBarras.Size = new System.Drawing.Size(194, 20);
+            this.lblCodigoDeBarras.TabIndex = 30;
+            this.lblCodigoDeBarras.Text = "Imagem Código de Barras";
+            // 
+            // pcbCodigoDeBarras
+            // 
+            this.pcbCodigoDeBarras.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pcbCodigoDeBarras.Location = new System.Drawing.Point(340, 285);
+            this.pcbCodigoDeBarras.Name = "pcbCodigoDeBarras";
+            this.pcbCodigoDeBarras.Size = new System.Drawing.Size(384, 90);
+            this.pcbCodigoDeBarras.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbCodigoDeBarras.TabIndex = 29;
+            this.pcbCodigoDeBarras.TabStop = false;
+            // 
+            // dtpValidade
+            // 
+            this.dtpValidade.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpValidade.Location = new System.Drawing.Point(288, 233);
+            this.dtpValidade.Name = "dtpValidade";
+            this.dtpValidade.Size = new System.Drawing.Size(102, 26);
+            this.dtpValidade.TabIndex = 27;
+            // 
+            // lblDataValidade
+            // 
+            this.lblDataValidade.AutoSize = true;
+            this.lblDataValidade.Location = new System.Drawing.Point(284, 210);
+            this.lblDataValidade.Name = "lblDataValidade";
+            this.lblDataValidade.Size = new System.Drawing.Size(132, 20);
+            this.lblDataValidade.TabIndex = 28;
+            this.lblDataValidade.Text = "Data de Validade";
+            // 
+            // dtpHora
+            // 
+            this.dtpHora.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHora.Location = new System.Drawing.Point(182, 233);
+            this.dtpHora.Name = "dtpHora";
+            this.dtpHora.Size = new System.Drawing.Size(82, 26);
+            this.dtpHora.TabIndex = 24;
+            // 
+            // dtpDataEntrada
+            // 
+            this.dtpDataEntrada.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataEntrada.Location = new System.Drawing.Point(25, 233);
+            this.dtpDataEntrada.Name = "dtpDataEntrada";
+            this.dtpDataEntrada.Size = new System.Drawing.Size(102, 26);
+            this.dtpDataEntrada.TabIndex = 23;
+            // 
+            // lblHora
+            // 
+            this.lblHora.AutoSize = true;
+            this.lblHora.Location = new System.Drawing.Point(178, 210);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(44, 20);
+            this.lblHora.TabIndex = 26;
+            this.lblHora.Text = "Hora";
+            // 
+            // lblDataEntrada
+            // 
+            this.lblDataEntrada.AutoSize = true;
+            this.lblDataEntrada.Location = new System.Drawing.Point(21, 210);
+            this.lblDataEntrada.Name = "lblDataEntrada";
+            this.lblDataEntrada.Size = new System.Drawing.Size(127, 20);
+            this.lblDataEntrada.TabIndex = 25;
+            this.lblDataEntrada.Text = "Data de Entrada";
+            // 
+            // btnUnidade
+            // 
+            this.btnUnidade.FlatAppearance.BorderSize = 0;
+            this.btnUnidade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUnidade.Image = ((System.Drawing.Image)(resources.GetObject("btnUnidade.Image")));
+            this.btnUnidade.Location = new System.Drawing.Point(279, 169);
+            this.btnUnidade.Name = "btnUnidade";
+            this.btnUnidade.Size = new System.Drawing.Size(45, 35);
+            this.btnUnidade.TabIndex = 19;
+            this.btnUnidade.UseVisualStyleBackColor = true;
+            this.btnUnidade.Click += new System.EventHandler(this.btnUnidade_Click);
             // 
             // lblLote
             // 
@@ -193,10 +277,11 @@
             // txtCodigo
             // 
             this.txtCodigo.Location = new System.Drawing.Point(20, 54);
-            this.txtCodigo.MaxLength = 11;
+            this.txtCodigo.MaxLength = 255;
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(100, 26);
+            this.txtCodigo.Size = new System.Drawing.Size(163, 26);
             this.txtCodigo.TabIndex = 0;
+            this.txtCodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigo_KeyDown);
             // 
             // lblCodigo
             // 
@@ -257,6 +342,7 @@
             this.btnLimpar.Text = "&Limpar";
             this.btnLimpar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnAlterar
             // 
@@ -281,6 +367,7 @@
             this.btnCadastrar.Text = "&Cadastrar";
             this.btnCadastrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // btnPesquisar
             // 
@@ -306,88 +393,7 @@
             this.btnNovo.Text = "&Novo";
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;
-            // 
-            // btnUnidade
-            // 
-            this.btnUnidade.FlatAppearance.BorderSize = 0;
-            this.btnUnidade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUnidade.Image = ((System.Drawing.Image)(resources.GetObject("btnUnidade.Image")));
-            this.btnUnidade.Location = new System.Drawing.Point(279, 169);
-            this.btnUnidade.Name = "btnUnidade";
-            this.btnUnidade.Size = new System.Drawing.Size(45, 35);
-            this.btnUnidade.TabIndex = 19;
-            this.btnUnidade.UseVisualStyleBackColor = true;
-            this.btnUnidade.Click += new System.EventHandler(this.btnUnidade_Click);
-            // 
-            // dtpHora
-            // 
-            this.dtpHora.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHora.Location = new System.Drawing.Point(182, 233);
-            this.dtpHora.Name = "dtpHora";
-            this.dtpHora.Size = new System.Drawing.Size(82, 26);
-            this.dtpHora.TabIndex = 24;
-            // 
-            // dtpDataEntrada
-            // 
-            this.dtpDataEntrada.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataEntrada.Location = new System.Drawing.Point(25, 233);
-            this.dtpDataEntrada.Name = "dtpDataEntrada";
-            this.dtpDataEntrada.Size = new System.Drawing.Size(102, 26);
-            this.dtpDataEntrada.TabIndex = 23;
-            // 
-            // lblHora
-            // 
-            this.lblHora.AutoSize = true;
-            this.lblHora.Location = new System.Drawing.Point(178, 210);
-            this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(44, 20);
-            this.lblHora.TabIndex = 26;
-            this.lblHora.Text = "Hora";
-            // 
-            // lblDataEntrada
-            // 
-            this.lblDataEntrada.AutoSize = true;
-            this.lblDataEntrada.Location = new System.Drawing.Point(21, 210);
-            this.lblDataEntrada.Name = "lblDataEntrada";
-            this.lblDataEntrada.Size = new System.Drawing.Size(127, 20);
-            this.lblDataEntrada.TabIndex = 25;
-            this.lblDataEntrada.Text = "Data de Entrada";
-            // 
-            // dtpValidade
-            // 
-            this.dtpValidade.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpValidade.Location = new System.Drawing.Point(288, 233);
-            this.dtpValidade.Name = "dtpValidade";
-            this.dtpValidade.Size = new System.Drawing.Size(102, 26);
-            this.dtpValidade.TabIndex = 27;
-            // 
-            // lblDataValidade
-            // 
-            this.lblDataValidade.AutoSize = true;
-            this.lblDataValidade.Location = new System.Drawing.Point(284, 210);
-            this.lblDataValidade.Name = "lblDataValidade";
-            this.lblDataValidade.Size = new System.Drawing.Size(132, 20);
-            this.lblDataValidade.TabIndex = 28;
-            this.lblDataValidade.Text = "Data de Validade";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(464, 279);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(254, 51);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 29;
-            this.pictureBox1.TabStop = false;
-            // 
-            // lblCodigoDeBarras
-            // 
-            this.lblCodigoDeBarras.AutoSize = true;
-            this.lblCodigoDeBarras.Location = new System.Drawing.Point(494, 256);
-            this.lblCodigoDeBarras.Name = "lblCodigoDeBarras";
-            this.lblCodigoDeBarras.Size = new System.Drawing.Size(194, 20);
-            this.lblCodigoDeBarras.TabIndex = 30;
-            this.lblCodigoDeBarras.Text = "Imagem Código de Barras";
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // frmGerenciarProdutos
             // 
@@ -403,8 +409,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbFoto)).EndInit();
             this.gpbInformacoesProdutos.ResumeLayout(false);
             this.gpbInformacoesProdutos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbCodigoDeBarras)).EndInit();
             this.pnlCrud.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -441,6 +447,6 @@
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.Label lblDataEntrada;
         private System.Windows.Forms.Label lblCodigoDeBarras;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pcbCodigoDeBarras;
     }
 }

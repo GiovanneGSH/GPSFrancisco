@@ -59,3 +59,7 @@ C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\GPSFrancisco\obj\
 C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\GPSFrancisco\obj\Debug\GPSFrancisco.frmGerenciarProdutos.resources
 C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\GPSFrancisco\obj\Debug\GPSFrancisco.frmUnidades.resources
 C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\GPSFrancisco\obj\Debug\GPSFrancisco.frmPesquisarUnidadesMedida.resources
+C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\GPSFrancisco\bin\Debug\GenCode128.dll
+C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\GPSFrancisco\bin\Debug\QRCoder.dll
+C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\GPSFrancisco\bin\Debug\System.Drawing.Common.dll
+C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\GPSFrancisco\obj\Debug\GPSFrancisco.frmBoleto.resources
