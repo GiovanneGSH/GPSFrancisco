@@ -1,5 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,28 +7,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace GPSFrancisco
 {
-    public partial class frmPesquisarProdutos : Form
+    public partial class frmPesquisaProduto : Form
     {
-        public frmPesquisarProdutos()
+        public frmPesquisaProduto()
         {
             InitializeComponent();
         }
 
-        private void ltbPesquisar_SelectedIndexChanged(object sender, EventArgs e)
+        private void ltbPesquisarProduto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string codigoBarras = ltbPesquisar.SelectedItem.ToString();
+            string codigoBarras = ltbPesquisarProduto.SelectedItem.ToString();
 
             frmGerenciarProdutos abrir = new frmGerenciarProdutos(codigoBarras);
             abrir.Show();
             this.Hide();
         }
 
-        private void btnPesquisar_Click(object sender, EventArgs e)
+        private void btnPesquisarProduto_Click(object sender, EventArgs e)
         {
-            if (rdbCodigo.Checked == false && rdbNome.Checked == false)
+            if (rdbCodigoProduto.Checked.Equals(false) && rdbNomeProduto.Checked.Equals(false))
             {
                 MessageBox.Show("Favor selecionar um item",
                     "Mensagem do sistema",
@@ -37,33 +37,32 @@ namespace GPSFrancisco
                     MessageBoxIcon.Error,
                     MessageBoxDefaultButton.Button1);
             }
-            else if (txtDescricao.Text.Equals(""))
+            else if (txtDescricaoProduto.Text.Equals(""))
             {
                 MessageBox.Show("Favor inserir um valor",
                     "Mensagem do sistema",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error,
                     MessageBoxDefaultButton.Button1);
-                txtDescricao.Focus();
+                txtDescricaoProduto.Focus();
             }
             else
             {
-                if (rdbCodigo.Checked)
+                if (rdbCodigoProduto.Checked)
                 {
-                    buscaProdutosPorCodigoBarras(txtDescricao.Text);
+                    buscaProdutosPorCodigoBarras(txtDescricaoProduto.Text);
                 }
-                if (rdbNome.Checked)
+                if (rdbNomeProduto.Checked)
                 {
-                    buscaProdutosDescricao(txtDescricao.Text);
+                    buscaProdutosDescricao(txtDescricaoProduto.Text);
                 }
             }
         }
 
-        //busca voluntários por código
         public void buscaProdutosPorCodigoBarras(string codProdBarras)
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "select * from tbProdutos where codBarras = @codBarras;";
+            comm.CommandText = "SELECT * FROM tbProdutos WHERE codBarras = @codBarras;";
             comm.CommandType = CommandType.Text;
 
             comm.Parameters.Clear();
@@ -74,17 +73,19 @@ namespace GPSFrancisco
             DR = comm.ExecuteReader();
             DR.Read();
 
-            ltbPesquisar.Items.Clear();
+            ltbPesquisarProduto.Items.Clear();
 
-            ltbPesquisar.Items.Add(DR.GetString(1));
+            ltbPesquisarProduto.Items.Add(DR.GetString(0));
 
             Conexao.fecharConexao();
 
         }
+
         public void buscaProdutosDescricao(string descricao)
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "select * from tbProdutos where descricao like '%" + descricao + "%';";
+            comm.CommandText = $"SELECT * FROM tbProdutos WHERE descricao LIKE '%{descricao}%';";
+
             comm.CommandType = CommandType.Text;
 
             comm.Connection = Conexao.obterConexao();
@@ -92,11 +93,11 @@ namespace GPSFrancisco
             MySqlDataReader DR;
             DR = comm.ExecuteReader();
 
-            ltbPesquisar.Items.Clear();
+            ltbPesquisarProduto.Items.Clear();
 
             while (DR.Read())
             {
-                ltbPesquisar.Items.Add(DR.GetString(1));
+                ltbPesquisarProduto.Items.Add(DR.GetString(1));
             }
 
             Conexao.fecharConexao();

@@ -151,7 +151,7 @@ namespace GPSFrancisco
         {
 
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "SELECT codBarras, prod.descricao, quantidade, lote, dataEntr, horaEntr, validade, fotoProd, unidade from tbProdutos as prod INNER JOIN tbUnidades as uni on prod.codUnid = uni.codUnid WHERE prod.descricao = @prod.descricao;";
+            comm.CommandText = "SELECT codBarras, prod.descricao, quantidade, lote, dataEntr, horaEntr, validade, fotoProd, unidade FROM tbProdutos AS prod INNER JOIN tbUnidades AS uni ON prod.codUnid = uni.codUnid WHERE prod.descricao = @prod.descricao;";
             comm.CommandType = CommandType.Text;
             comm.Parameters.Clear();
             comm.Parameters.Add("@prod.descricao", MySqlDbType.VarChar, 100).Value = descricao;
@@ -192,7 +192,7 @@ namespace GPSFrancisco
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            frmPesquisarProdutos abrir = new frmPesquisarProdutos();
+            frmPesquisaProduto abrir = new frmPesquisaProduto();
             abrir.Show();
             this.Hide();
         }

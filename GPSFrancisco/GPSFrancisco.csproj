@@ -172,17 +172,17 @@
     <Compile Include="frmMenuPrincipal.Designer.cs">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPesquisaProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPesquisaProduto.Designer.cs">
+      <DependentUpon>frmPesquisaProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPesquisarAtribuicao.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmPesquisarAtribuicao.Designer.cs">
       <DependentUpon>frmPesquisarAtribuicao.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmPesquisarProdutos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmPesquisarProdutos.Designer.cs">
-      <DependentUpon>frmPesquisarProdutos.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPesquisarUnidadesMedida.cs">
       <SubType>Form</SubType>
@@ -248,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenuPrincipal.resx">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPesquisaProduto.resx">
+      <DependentUpon>frmPesquisaProduto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPesquisarAtribuicao.resx">
       <DependentUpon>frmPesquisarAtribuicao.cs</DependentUpon>

@@ -63,3 +63,4 @@ C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\GPSFrancisco\bin\
 C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\GPSFrancisco\bin\Debug\QRCoder.dll
 C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\GPSFrancisco\bin\Debug\System.Drawing.Common.dll
 C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\GPSFrancisco\obj\Debug\GPSFrancisco.frmBoleto.resources
+C:\Users\giovanne.shenrique\Documents\Visual Studio 2022\TDS01\GPSFrancisco\obj\Debug\GPSFrancisco.frmPesquisaProduto.resources
